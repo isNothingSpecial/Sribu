@@ -34,11 +34,11 @@ if st.button("Predict"):
     if input_recency > 0 and input_frequency > 0 and input_monetary > 0:
         # Prepare input data
         new_data = np.array([[input_recency, input_frequency, input_monetary]])
-        scaler = StandardScaler()
-        scaled_data = scaler.fit_transform(new_data)
+        #scaler = StandardScaler()
+        #scaled_data = scaler.fit_transform(new_data)
         
         # Predict cluster
-        prediction = kms.predict(scaled_data)[0]
+        prediction = kms.predict(new_data)[0]
         
         # Display result
         st.subheader(f"Cluster: {prediction}")
