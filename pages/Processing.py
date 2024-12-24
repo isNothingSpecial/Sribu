@@ -7,7 +7,7 @@ from sklearn.cluster import KMeans # Scikit Learn (version : 0.23.2)
 import seaborn as sns # Seaborn (version : 0.11.1)
 from streamlit_webrtc import webrtc_streamer
 
-df = pd.read_csv('result_rfm_3cluster.xlsx')
+df = pd.read_csv('result_rfm_3cluster.csv')
 rfm_features = ['Recency', 'Frequency', 'Monetary']  # Replace with actual column names
 df_rfm = df[rfm_features]
 
