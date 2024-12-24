@@ -1,0 +1,9 @@
+streamlit==1.16.0
+pandas
+numpy
+scikit-learn
+scipy
+matplotlib
+seaborn
+streamlit-webrtc
+altair==4.2.0
