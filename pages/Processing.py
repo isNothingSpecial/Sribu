@@ -17,15 +17,15 @@ kms.fit(df_rfm)
 st.title(''' CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY,FREQUENCY,MONETARY) DAN ALGORITMA K-MEANS ''')
 st.write('Prediksi Data Baru')
 
-input_recency = st.number_input ("Recency (≥ 0)", )
+input_recency = st.number_input ("Recency", step=1, format='%d')
 #min_value=df('precipation').min()
 #max_value=df('precipation').max()
 
-input_frequency = st.number_input ("Frequency", )
+input_frequency = st.number_input ("Frequency", step=1, format='%d')
 #min_value=df('precipation').min()
 #max_value=df('precipation').max()
 
-input_monetary = st.number_input ("Monetary")
+input_monetary = st.number_input ("Monetary",step=1, format='%d')
 
 result = "-"
 
