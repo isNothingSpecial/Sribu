@@ -45,21 +45,21 @@ if st.button("Predict"):
         if prediction == 0:
             st.write("""
             **Cluster 0: One-Time Buyers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan yang bertipe One-Time Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency: {input_recency} - Frequency: {input_frequency} - Monetary: {input_monetary}
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan yang bertipe One-Time Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency:  - Frequency:  - Monetary: 
             
             Sehingga pelanggan yang berada di Cluster ini bisa terbentuk karena banyak faktor,apakah mereka merupakan pelanggan baru,dimana mereka masih mencoba - coba membeli jasa-jasa freelancer yang telah disediakan oleh Sribu untuk pertama kalinya,apakah mereka merupakan pelanggan yang hanya membutuhkan jasa freelancer hanya di hari mereka order saja,sehingga hanya menggunakan jasa freelancer ketika dia membutuhkan saja. 
             """)
         elif prediction == 1:
             st.write("""
             **Cluster 1: Potential Buyers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Potentials Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency: {input_recency} - Frequency: {input_frequency} - Monetary: {input_monetary}
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Potentials Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency:  - Frequency:  - Monetary: 
             
             Sehingga pelanggan yang berada di Cluster ini bisa terbentuk karena banyak faktor,mereka merupakan pelanggan yang memiliki frequency yang lumayan tinggi,dan history melakukan transaksi terbilang relatif singkat,dimana bisa disebakan karena Pelanggan yang berada di cluster ini terkadang membutuhkan jasa-jasa freelancer sehingga akhirnya ketika ia membutuhkan lebih memilih untuk membeli jasa-jasa freelancer yang telah disediakan oleh Sribu.
             """)
         elif prediction == 2:
             st.write("""
             **Cluster 2: Loyal Customers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Loyal Customers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency: {input_recency} - Frequency: {input_frequency} - Monetary: {input_monetary}
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Loyal Customers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : - Recency:  - Frequency:  - Monetary: 
             
             Sehingga pelanggan yang berada di Cluster tersebut merupakan dimana Pelanggan melakukan sering sekali melakukan transaksi dengan kuantitas yang tergolong banyak dan memiliki nilai history transaksi yang rendah,dimana bisa disebakan karena Pelanggan yang berada di cluster ini sangat membutuhkan jasa-jasa freelancer sehingga akhirnya sering membeli jasa-jasa freelancer yang telah disediakan oleh Sribu.
             """)
