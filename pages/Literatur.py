@@ -18,7 +18,7 @@ st.write("Literatur Pengertian Setiap Kolom")
 lit = ['Dataset Awal', 'Algoritma', 'RFM Data']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
-# Penjelasan berdasarkan pilihan literatur
+# Logika berdasarkan literatur
 if literatur == 'Dataset Awal':
     st.header('Dataset Awal')
     st.markdown("""
@@ -39,7 +39,7 @@ if literatur == 'Dataset Awal':
 elif literatur == 'Algoritma':
     st.header('Algoritma')
     st.subheader('RFM dan K-Means')
-    
+
     lital = ['RFM', 'K-Means']
     literatural = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', lital)
 
@@ -52,50 +52,57 @@ elif literatur == 'Algoritma':
         - **Frequency**: Seberapa sering pelanggan bertransaksi selama menggunakan Platform Sribu.
         - **Monetary**: Total uang yang dihabiskan pelanggan untuk melakukan transaksi selama menggunakan Platform Sribu.
         """)
-        # Penjelasan tambahan tentang RFM menggunakan tombol
+
+        # Inisialisasi session_state untuk tombol
+        if "iya_pressed" not in st.session_state:
+            st.session_state.iya_pressed = False
+        if "tidak_pressed" not in st.session_state:
+            st.session_state.tidak_pressed = False
+
+        # Tombol Iya dan Tidak
         st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM di dataset yang telah diolah?")
         col1, col2 = st.columns(2)
-
         with col1:
             if st.button("Iya"):
-               st.header("Pilih Penjelasan RFM yang ingin Anda Ketahui")
-                
-                    litrfm = ['Recency', 'Frequency','Monetary']
-                    literaturrfm = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', litrfm)
-                
-                    if literaturrfm == 'Recency':
-                        st.header('Recency')
-                        st.subheader('Kebaharuan')
-                        st.write(""" Recency (R)
-                        - **Definisi** : Seberapa baru pelanggan terakhir kali berinteraksi (misalnya, melakukan pembelian).
-                        - **Mengapa Penting** : Pelanggan yang baru saja bertransaksi cenderung lebih terlibat dan lebih mungkin untuk melakukan pembelian lagi.
-                        - **Pengukuran** : Interval waktu sejak transaksi terakhir hingga hari ini.
-                        
-                        Contoh : Pelanggan yang terakhir kali membeli 7 hari lalu memiliki nilai recency yang lebih tinggi dibanding pelanggan yang terakhir membeli 30 hari lalu. """)
-
-                    elif literaturrfm == 'Frequency':
-                        st.header('Frequency')
-                        st.subheader('Intensitas')
-                        st.write(""" Frequency (F)
-                        - **Definisi** : Seberapa sering pelanggan bertransaksi dalam periode tertentu.
-                        - **Mengapa Penting** : Pelanggan yang sering membeli menunjukkan loyalitas lebih tinggi dibanding pelanggan dengan frekuensi rendah.
-                        - **Pengukuran** : Jumlah total transaksi pelanggan selama periode tertentu.
-                        
-                        Contoh : Pelanggan yang melakukan pembelian 10 kali lebih sering berinteraksi dibanding pelanggan dengan hanya 2 transaksi. """)
-                        
-                    elif literaturrfm == 'Monetary':
-                        st.header('Monetary')
-                        st.subheader('Total Nilai Uang')
-                        st.write(""" Monetary (M)
-                        - **Definisi** : Total nilai uang yang dihabiskan oleh pelanggan.
-                        - **Mengapa Penting** : Pelanggan dengan pengeluaran lebih besar memberikan kontribusi lebih besar pada pendapatan perusahaan.
-                        - **Pengukuran** : Jumlah total uang yang dihabiskan pelanggan dalam transaksi mereka.
-                        
-                        Contoh: Pelanggan dengan total pengeluaran Rp 5 juta lebih bernilai dibanding pelanggan yang hanya menghabiskan Rp 500 ribu. """)
+                st.session_state.iya_pressed = True
+                st.session_state.tidak_pressed = False
         with col2:
             if st.button("Tidak"):
-               st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
+                st.session_state.iya_pressed = False
+                st.session_state.tidak_pressed = True
 
+        # Logika berdasarkan tombol yang ditekan
+        if st.session_state.iya_pressed:
+            st.header("Pilih Penjelasan RFM yang ingin Anda Ketahui")
+            litrfm = ['Recency', 'Frequency', 'Monetary']
+            literaturrfm = st.selectbox('Pilih aspek RFM:', litrfm)
+
+            if literaturrfm == 'Recency':
+                st.header('Recency')
+                st.subheader('Kebaharuan')
+                st.write("""
+                - **Definisi**: Seberapa baru pelanggan terakhir kali berinteraksi (misalnya, melakukan pembelian).
+                - **Pengukuran**: Interval waktu sejak transaksi terakhir hingga hari ini.
+                - **Mengapa Penting**: Pelanggan yang baru saja bertransaksi cenderung lebih terlibat dan lebih mungkin untuk melakukan pembelian lagi.
+                """)
+            elif literaturrfm == 'Frequency':
+                st.header('Frequency')
+                st.subheader('Intensitas')
+                st.write("""
+                - **Definisi**: Seberapa sering pelanggan bertransaksi dalam periode tertentu.
+                - **Pengukuran**: Jumlah total transaksi pelanggan selama periode tertentu.
+                - **Mengapa Penting**: Pelanggan yang sering membeli menunjukkan loyalitas lebih tinggi.
+                """)
+            elif literaturrfm == 'Monetary':
+                st.header('Monetary')
+                st.subheader('Total Nilai Uang')
+                st.write("""
+                - **Definisi**: Total nilai uang yang dihabiskan oleh pelanggan.
+                - **Pengukuran**: Jumlah total uang yang dihabiskan pelanggan dalam transaksi mereka.
+                - **Mengapa Penting**: Pelanggan dengan pengeluaran lebih besar memberikan kontribusi lebih besar pada pendapatan perusahaan.
+                """)
+        elif st.session_state.tidak_pressed:
+            st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
     elif literatural == 'K-Means':
         st.header('K-Means')
@@ -108,7 +115,7 @@ elif literatur == 'Algoritma':
         3. Update Centroid: Hitung ulang centroid berdasarkan rata-rata data dalam cluster.
         4. Iterasi: Ulangi langkah 2 dan 3 hingga centroid tidak berubah.
         """)
-        
+
         col1, col2 = st.columns(2)
         with col1:
             st.markdown("**Keuntungan K-Means**")
