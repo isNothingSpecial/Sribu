@@ -59,8 +59,8 @@ elif literatur == 'Algoritma':
         with col1:
             if st.button("Iya"):
                st.header("Pilih Penjelasan RFM yang ingin Anda Ketahui")
-                        litrfm = ['Recency', 'Frequency','Monetary']
-                        literaturrfm = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', litrfm)
+                    litrfm = ['Recency', 'Frequency','Monetary']
+                    literaturrfm = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', litrfm)
                     if literaturrfm == 'Recency':
                         st.header('Recency')
                         st.subheader('Kebaharuan')
