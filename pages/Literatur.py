@@ -33,6 +33,8 @@ if literatur == 'Dataset Awal':
     - Status Invoice
     - Paid At
     - Total Paid
+
+    Berikut adalah Dataset Awal yang di dapat dari Platform Sribu :
     """)
     st.write(df)
 
