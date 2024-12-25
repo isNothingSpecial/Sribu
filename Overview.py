@@ -26,13 +26,13 @@ col1, col2, col3,col4 = st.columns(3)
 
 # Menampilkan konten di setiap kolom
 with col1:
-st.image("Sribu.png", use_column_width=True)
+    st.image("Sribu.png", use_column_width=True)
 
 with col2:
-st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
+    st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
 
 with col3:
-st.markdown('''Sejarah Singkat Sribu :
+    st.markdown('''Sejarah Singkat Sribu :
 - 2011: Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
 - 2012: Menerima pendanaan awal dari East Ventures, yang memungkinkan ekspansi layanan.
 - 2014: Mendapat investasi tambahan dari Asteria Japan dan memperluas kategori layanan untuk mencakup lebih dari sekadar desain grafis.
@@ -41,7 +41,7 @@ st.markdown('''Sejarah Singkat Sribu :
 ''')
 
 with col4
-st.markdown('''Pencapaian Sribu :
+    st.markdown('''Pencapaian Sribu :
 Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
 Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
 ''')
