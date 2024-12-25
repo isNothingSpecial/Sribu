@@ -60,13 +60,13 @@ elif literatur == 'Algoritma':
             if st.button("Iya"):
                st.header("Penjelasan RFM")
                st.write("""
-                - **Recency**: Interval waktu sejak transaksi terakhir pelanggan.
-                - **Frequency**: Jumlah total transaksi pelanggan.
-                - **Monetary**: Total nilai transaksi yang dihasilkan pelanggan.
+                - **Recency**: Interval waktu sejak transaksi terakhir pelanggan pada Platform Sribu.
+                - **Frequency**: Jumlah total transaksi pelanggan selama menggunakan Platform Sribu.
+                - **Monetary**: Total nilai transaksi yang dihasilkan pelanggan selama bertransaksi di Platform Sribu.
                 """)
         with col2:
             if st.button("Tidak"):
-               st.warning("Baiklah, silakan lanjutkan aktivitas Anda!")
+               st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 
     elif literatural == 'K-Means':
