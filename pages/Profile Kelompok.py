@@ -31,7 +31,7 @@ with col4:
     st.header("Ismi Nurhadiyanti Rusmana")
     st.write("Anggpta")
 
-st.write("Supported By :
+st.write("Supported By :")
 
 col5, col6 = st.columns(2)
 
