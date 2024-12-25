@@ -60,7 +60,7 @@ elif literatur == 'Algoritma':
             st.session_state.tidak_pressed = False
 
         # Tombol Iya dan Tidak
-        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM di dataset yang telah diolah?")
+        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
         col1, col2 = st.columns(2)
         with col1:
             if st.button("Iya"):
@@ -82,7 +82,7 @@ elif literatur == 'Algoritma':
                 st.subheader('Kebaharuan')
                 st.write("""
                 - **Definisi**: Seberapa baru pelanggan terakhir kali berinteraksi (misalnya, melakukan pembelian).
-                - **Pengukuran**: Interval waktu sejak transaksi terakhir hingga hari ini.
+                - **Pengukuran**: Interval waktu sejak transaksi terakhir hingga data ini diambil.
                 - **Mengapa Penting**: Pelanggan yang baru saja bertransaksi cenderung lebih terlibat dan lebih mungkin untuk melakukan pembelian lagi.
                 """)
             elif literaturrfm == 'Frequency':
@@ -97,7 +97,7 @@ elif literatur == 'Algoritma':
                 st.header('Monetary')
                 st.subheader('Total Nilai Uang')
                 st.write("""
-                - **Definisi**: Total nilai uang yang dihabiskan oleh pelanggan.
+                - **Definisi**: Total nilai uang yang dihabiskan oleh pelanggan selama ia melakukan transaksi.
                 - **Pengukuran**: Jumlah total uang yang dihabiskan pelanggan dalam transaksi mereka.
                 - **Mengapa Penting**: Pelanggan dengan pengeluaran lebih besar memberikan kontribusi lebih besar pada pendapatan perusahaan.
                 """)
