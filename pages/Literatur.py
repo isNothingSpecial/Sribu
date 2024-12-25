@@ -52,6 +52,18 @@ elif literatur == 'Algoritma':
         - **Frequency**: Seberapa sering pelanggan bertransaksi.
         - **Monetary**: Total uang yang dihabiskan pelanggan.
         """)
+        # Penjelasan tambahan tentang RFM
+        pilihan = st.buttons("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?", ("Iya", "Tidak"))
+
+        if pilihan == "Iya":
+            st.header("Penjelasan RFM")
+            st.write("""
+            - **Recency**: Interval waktu sejak transaksi terakhir pelanggan di Platform Sribu.
+            - **Frequency**: Jumlah total transaksi pelanggan selama melakukan transaksi di Platform Sribu.
+            - **Monetary**: Total nilai transaksi yang dihasilkan pelanggan selama bertransaksi di Platform Sribu.
+            """)
+        else:
+            st.warning("Baiklah :) , silakan lanjutkan aktivitas Anda")
 
     elif literatural == 'K-Means':
         st.header('K-Means')
@@ -86,16 +98,3 @@ elif literatur == 'RFM Data':
     - Cluster
     """)
     st.write(dfproc)
-
-# Penjelasan tambahan tentang RFM
-pilihan = st.radio("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?", ("Iya", "Tidak"))
-
-if pilihan == "Iya":
-    st.header("Penjelasan RFM")
-    st.write("""
-    - **Recency**: Interval waktu sejak transaksi terakhir pelanggan di Platform Sribu.
-    - **Frequency**: Jumlah total transaksi pelanggan selama melakukan transaksi di Platform Sribu.
-    - **Monetary**: Total nilai transaksi yang dihasilkan pelanggan selama bertransaksi di Platform Sribu.
-    """)
-else:
-    st.warning("Baiklah :) , silakan lanjutkan aktivitas Anda")
