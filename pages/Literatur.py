@@ -3,17 +3,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv('song_data_diolah.csv')
+df = pd.read_csv('result_rfm_3cluster.csv')
 
 st.markdown(
     """
-    <h1 style='text-align: center;'>APLIKASI MEMPREDIKSI POPULARITAS LAGU DENGAN MENGGUNAKAN ALGORITMA RANDOM FOREST</h1>
+    <h1 style='text-align: center;'>CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY,FREQUENCY,MONETARY) DAN ALGORITMA K-MEANS</h1>
     """, 
     unsafe_allow_html=True
 )
 st.write('Literatur Pengertian Setiap Kolom')
 
-lit = ['song_name', 'song_popularity', 'song_duration_min', 'danceability','energy','key','loudness','audio_mode','speechiness','time_signature','tempo_category_numeric']
+lit = ['Dataset', 'Algoritma']
 
 literatur = st.selectbox('Pilih Literatur yang ingin anda ketahui', lit)
         
