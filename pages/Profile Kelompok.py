@@ -13,19 +13,19 @@ st.markdown(
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.subheader("Bagus Rahma AC")
+    st.subheader("- Bagus Rahma AC")
     st.write("Ketua Kelompok 1")
     
 with col2:
-    st.subheader("Tannu Wibowo")
+    st.subheader("- Tannu Wibowo")
     st.write("Anggota Kelompok 1")
 
 with col3:
-    st.subheader("Annisa Firdaus Nst")
+    st.subheader("- Annisa Firdaus Nst")
     st.write("Anggpta Kelompok 1")
 
 with col4:
-    st.subheader("Ismi Nurhadiyanti")
+    st.subheader("- Ismi Nurhadiyanti")
     st.write("Anggpta Kelompok 1")
 
 st.subheader("Supported By :")
