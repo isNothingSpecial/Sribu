@@ -22,7 +22,7 @@ st.markdown(
 )
 
 # Membuat tiga kolom
-col1, col2, col3,col4 = st.columns(3)
+col1, col2, col3,col4 = st.columns(4)
 
 # Menampilkan konten di setiap kolom
 with col1:
