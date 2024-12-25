@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv('result_rfm_3cluster.csv')
+df = pd.read_excel('Data Sales Platform - SRIBU.xlsx')
+dfproc = pd.read_csv('result_rfm_3cluster.csv')
 
 st.markdown(
     """
@@ -36,10 +37,22 @@ Detailnya sebagai berikut : ''')
 
     elif literatur == 'Algoritma':
         st.header('Algoritma')
-        st.subheader('K-Means')
-        st.markdown(''' K-Means adalah salah satu algoritma clustering yang paling sederhana dan populer untuk mengelompokkan data ke dalam sejumlah grup berdasarkan kesamaan. Algoritma ini termasuk dalam jenis unsupervised learning, yang berarti tidak memerlukan label atau target untuk membentuk kelompok.
-        
-        Cara Kerja K-Means
+        st.subheader('RFM dan K-Means')
+        st.write('Pilih Penjelasan Algoritma yang digunakan di project ini')
+
+            lital = ['RFM,K-Means']
+            literatural = st.selectbox('Pilih literatur Chest Pain yang ingin anda ketahui : ', lital)
+    
+            if literatural == 'RFM':
+                st.header('Chest Pain Type 1')
+                st.subheader('Chest Pain Type 1 atau Nyeri Dada Type Asimtomatik')
+                st.write('Nyeri dada asimtomatik adalah nyeri dada yang tidak memiliki tanda atau gejala yang jelas, atau memiliki gejala yang tidak khas dari masalah jantung. Hal ini dapat disebabkan oleh berbagai kondisi, seperti iskemia miokard, serangan jantung diam, emboli paru, gagal jantung, atau gangguan kardiovaskular, muskuloskeletal, gastrointestinal, paru, atau kejiwaan lainnya. Nyeri dada tanpa gejala bisa sulit didiagnosis dan mungkin memerlukan tes lebih lanjut untuk menyingkirkan kondisi serius.')
+    
+            elif literatural == 'K-Means':
+                st.header('K-Means')
+                st.subheader('Penjelasan singkat tentang Algoritma K-Means')
+                st.markdown(''' K-Means adalah salah satu algoritma clustering yang paling sederhana dan populer untuk mengelompokkan data ke dalam sejumlah grup berdasarkan kesamaan. Algoritma ini termasuk dalam jenis unsupervised learning, yang berarti tidak memerlukan label atau target untuk membentuk kelompok.
+Cara Kerja K-Means
 
 1. Inisialisasi:
 - Tentukan jumlah kluster 𝑘 yang ingin dibuat.
@@ -57,34 +70,51 @@ Detailnya sebagai berikut : ''')
 
 5. Hasil Akhir:
 - Setiap data akan termasuk dalam satu kluster, dan centroid mencerminkan pusat setiap kluster.
-        ''')
-    
-    litcp = ['Chest Pain Type 1', 'Chest Pain Type 2', 'Chest Pain Type 3', 'Chest Pain Type 4']
-    literaturcp = st.selectbox('Pilih literatur Chest Pain yang ingin anda ketahui : ', litcp)
-    
-    if literaturcp == 'Chest Pain Type 1':
-        st.header('Chest Pain Type 1')
-        st.subheader('Chest Pain Type 1 atau Nyeri Dada Type Asimtomatik')
-        st.write('Nyeri dada asimtomatik adalah nyeri dada yang tidak memiliki tanda atau gejala yang jelas, atau memiliki gejala yang tidak khas dari masalah jantung. Hal ini dapat disebabkan oleh berbagai kondisi, seperti iskemia miokard, serangan jantung diam, emboli paru, gagal jantung, atau gangguan kardiovaskular, muskuloskeletal, gastrointestinal, paru, atau kejiwaan lainnya. Nyeri dada tanpa gejala bisa sulit didiagnosis dan mungkin memerlukan tes lebih lanjut untuk menyingkirkan kondisi serius.')
-    
-    elif literaturcp == 'Chest Pain Type 2':
-        st.header('Chest Pain Type 2')
-        st.subheader('Chest Pain Type 2 atau Nyeri Dada Tipe Atipikal Angina')
-        st.write('Angina atipikal mengacu pada nyeri dada atau ketidaknyamanan yang tidak memiliki karakteristik khas angina klasik. Ini mungkin hadir dengan gejala yang berbeda atau mungkin tidak mengikuti pola nyeri dada yang biasa terkait dengan masalah jantung.')
+''')
+            col1,col2 = st.columns(2)
+            with col1:
+                st.markdown(''' Keuntungan K-Means
+                - Cepat dan efisien, terutama pada dataset yang besar.
+                - Mudah dipahami dan diimplementasikan. ''')
+
+            with col2:
+                st.markdown('''Kekurangan K-Means
+                - Harus menentukan 𝑘 (jumlah kluster) di awal.
+                - Sensitif terhadap titik awal (initialization).
+                - Tidak bekerja baik untuk kluster dengan bentuk yang kompleks atau ukuran yang sangat bervariasi.
+                - Rentan terhadap outlier, karena mereka dapat menggeser posisi centroid.''')
         
-    elif literaturcp == 'Chest Pain Type 3':
-        st.header('Chest Pain Type 3')
-        st.subheader('Chest Pain Type 3 atau Nyeri Dada Tipe non tipikal Angina')
-        st.write('Angina non-tipikal mengacu pada nyeri dada yang tidak berasal dari jantung dan kadang-kadang tidak mewakili gejala iskemik angina pada kasus penyakit jantung yang khas.')
-    
-    elif literaturcp == 'Chest Pain Type 4':
-        st.header('Chest Pain Type 4')
-        st.subheader('Chest Pain Type 4 atau Nyeri Dada Tipe tipikal Angina')
-        st.write('Angina khas, juga dikenal sebagai angina stabil, adalah nyeri dada atau ketidaknyamanan yang terjadi ketika otot jantung tidak menerima aliran darah yang cukup, biasanya selama aktivitas fisik atau stres. Ini ditandai dengan pola yang dapat diprediksi, sering dipicu oleh kegiatan seperti olahraga atau stres emosional, dan cenderung mereda dengan istirahat atau obat-obatan.')
-  
+    elif literatural == 'RFM Data':
+        st.header('Data Yang Telah Diolah')
+        st.subheader('Data yang telah diolah menggunakan metode RFM dan Algoritma K-Means')
+        st.markdown(''' Data Awal yang telah diolah menggunakan metode RFM dan Algoritma K-Means lalu disimpan kedalam dataset baru dimana datasetnya memiliki kolom-kolom sebagai berikut : 
+        - Client User Id
+        - Paid At
+        - Recency
+        - Frequency
+        - Monetary
+        - Cluster
+        
+        Selengkapnya sebagai berikut : ''')
+        st.write(dfproc)
+ # Pertanyaan dengan tombol "Iya" dan "Tidak"
+pilihan = st.radio("Apakah Anda ingin penjelasan tentang RFM?", ("Iya", "Tidak"))
+
+# Tampilkan respons berdasarkan pilihan
+if pilihan == "Iya":
+    st.header("RFM")
+    st.subheader("Recency,Frequency,Monetary")
+    st.write("""
+    **RFM (Recency, Frequency, Monetary)** adalah metode analisis data pelanggan yang membantu bisnis memahami perilaku pelanggan dengan membagi mereka ke dalam kategori berdasarkan:
+    - **Recency**: Seberapa baru pelanggan melakukan Transaksi di Platform Sribu.
+    - **Frequency**: Seberapa sering pelanggan melakukan Transaksi di Platform Sribu.
+    - **Monetary**: Berapa banyak total uang yang dihabiskan pelanggan selama bertransaksi di platform Sribu.
+    """)
+else:
+    st.warning("Baiklah, silakan lanjutkan aktivitas Anda!")
     else:
-        st.write('pilih Tipikal Chest Pain di atas')
+        st.write('pilih penjelasan Algoritma apa yang ingin anda ketahui')
 
 
 else:
-    st.subheader('Pilih literatur yang ingin anda ketahui ')
+    st.error("Silakan pilih penjelasan apa yang ingin anda ketahui")
