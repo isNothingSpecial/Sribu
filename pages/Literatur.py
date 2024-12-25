@@ -48,22 +48,48 @@ elif literatur == 'Algoritma':
         st.subheader('Recency, Frequency, Monetary')
         st.write("""
         **RFM (Recency, Frequency, Monetary)** adalah metode analisis pelanggan yang membagi mereka berdasarkan:
-        - **Recency**: Seberapa baru pelanggan terakhir bertransaksi.
-        - **Frequency**: Seberapa sering pelanggan bertransaksi.
-        - **Monetary**: Total uang yang dihabiskan pelanggan.
+        - **Recency**: Seberapa baru pelanggan terakhir bertransaksi di Platform Sribu.
+        - **Frequency**: Seberapa sering pelanggan bertransaksi selama menggunakan Platform Sribu.
+        - **Monetary**: Total uang yang dihabiskan pelanggan untuk melakukan transaksi selama menggunakan Platform Sribu.
         """)
         # Penjelasan tambahan tentang RFM menggunakan tombol
-        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
+        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM di dataset yang telah diolah?")
         col1, col2 = st.columns(2)
 
         with col1:
             if st.button("Iya"):
-               st.header("Penjelasan RFM")
-               st.write("""
-                - **Recency**: Interval waktu sejak transaksi terakhir pelanggan pada Platform Sribu.
-                - **Frequency**: Jumlah total transaksi pelanggan selama menggunakan Platform Sribu.
-                - **Monetary**: Total nilai transaksi yang dihasilkan pelanggan selama bertransaksi di Platform Sribu.
-                """)
+               st.header("Pilih Penjelasan RFM yang ingin Anda Ketahui")
+                        litrfm = ['Recency', 'Frequency','Monetary']
+                        literaturrfm = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', litrfm)
+                    if literaturrfm == 'Recency':
+                        st.header('Recency')
+                        st.subheader('Kebaharuan')
+                        st.write(""" Recency (R)
+                        - **Definisi** : Seberapa baru pelanggan terakhir kali berinteraksi (misalnya, melakukan pembelian).
+                        - **Mengapa Penting** : Pelanggan yang baru saja bertransaksi cenderung lebih terlibat dan lebih mungkin untuk melakukan pembelian lagi.
+                        - **Pengukuran** : Interval waktu sejak transaksi terakhir hingga hari ini.
+                        
+                        Contoh : Pelanggan yang terakhir kali membeli 7 hari lalu memiliki nilai recency yang lebih tinggi dibanding pelanggan yang terakhir membeli 30 hari lalu. """)
+
+                    elif literaturrfm == 'Frequency':
+                        st.header('Frequency')
+                        st.subheader('Intensitas')
+                        st.write(""" Frequency (F)
+                        - **Definisi** : Seberapa sering pelanggan bertransaksi dalam periode tertentu.
+                        - **Mengapa Penting** : Pelanggan yang sering membeli menunjukkan loyalitas lebih tinggi dibanding pelanggan dengan frekuensi rendah.
+                        - **Pengukuran** : Jumlah total transaksi pelanggan selama periode tertentu.
+                        
+                        Contoh : Pelanggan yang melakukan pembelian 10 kali lebih sering berinteraksi dibanding pelanggan dengan hanya 2 transaksi. """)
+                        
+                    elif literaturrfm == 'Monetary':
+                        st.header('Monetary')
+                        st.subheader('Total Nilai Uang')
+                        st.write(""" Monetary (M)
+                        - **Definisi** : Total nilai uang yang dihabiskan oleh pelanggan.
+                        - **Mengapa Penting** : Pelanggan dengan pengeluaran lebih besar memberikan kontribusi lebih besar pada pendapatan perusahaan.
+                        - **Pengukuran** : Jumlah total uang yang dihabiskan pelanggan dalam transaksi mereka.
+                        
+                        Contoh: Pelanggan dengan total pengeluaran Rp 5 juta lebih bernilai dibanding pelanggan yang hanya menghabiskan Rp 500 ribu. """)
         with col2:
             if st.button("Tidak"):
                st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
