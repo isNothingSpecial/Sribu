@@ -20,9 +20,6 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
-# Menampilkan konten di setiap kolom
-col1 = st.columns()
 st.image("Sribu.png", use_column_width=True)
 
 st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
