@@ -20,7 +20,7 @@ literatur = st.selectbox('Pilih Literatur yang ingin anda ketahui', lit)
         
 if literatur == 'Dataset Awal':
     st.header('Dataset Awal')
-    st.markdown(''Dataset yang digunakan adalah Dataset Transaksi Pelanggan selama 1 Tahun dari Platform Sribu dimana memiliki kolom-kolom ,sebagai berikut :
+    st.markdown(''' Dataset yang digunakan adalah Dataset Transaksi Pelanggan selama 1 Tahun dari Platform Sribu dimana memiliki kolom-kolom ,sebagai berikut :
 - Nama_Jobs
 - Type
 - Category
@@ -30,9 +30,7 @@ if literatur == 'Dataset Awal':
 - Order Date
 - Status Invoice
 - Paid At
-- Total Paid'
-
-Detailnya sebagai berikut : ''')
+- Total Paid' Detailnya sebagai berikut : ''')
     st.write(df)
 
     elif literatur == 'Algoritma':
