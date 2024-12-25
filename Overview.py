@@ -40,7 +40,7 @@ with col3:
 - 2022: Diakuisisi oleh Mynavi Japan dan menjadi anak perusahaan mereka.
 ''')
 
-with col4
+with col4:
     st.markdown('''Pencapaian Sribu :
 Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
 Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
