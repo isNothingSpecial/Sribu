@@ -7,7 +7,7 @@ st.header('KELOMPOK 1')
 st.markdown(
     """
     <h3 style='text-align: center;'>Bagus Rahma Aulia Chandra</h3>
-    <h4 style='text-align: center;'>Ketua Kelompok 1</h4>
+    <h5 style='text-align: center;'>Ketua Kelompok 1</h5>
     """, 
     unsafe_allow_html=True
 )
@@ -24,7 +24,7 @@ with col2:
     st.write("Anggpta Kelompok 1")
 
 with col3:
-    st.subheader("Ismi Nurhadiyanti R")
+    st.subheader("Ismi Nurhadiyanti")
     st.write("Anggpta Kelompok 1")
 
 st.subheader("Supported By :")
