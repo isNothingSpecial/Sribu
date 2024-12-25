@@ -16,15 +16,15 @@ st.markdown(
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.header("Tannu Wibowo")
+    st.subheader("Tannu Wibowo")
     st.write("Anggota Kelompok 1")
 
 with col2:
-    st.header("Annisa Firdaus Nasution")
+    st.subheader("Annisa Firdaus Nst")
     st.write("Anggpta Kelompok 1")
 
 with col3:
-    st.header("Ismi Nurhadiyanti Rusmana")
+    st.subheader("Ismi Nurhadiyanti R")
     st.write("Anggpta Kelompok 1")
 
 st.subheader("Supported By :")
