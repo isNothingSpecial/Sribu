@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load datasets
-df = pd.read_excel('Data Sales Platform - SRIBU.xlsx')
+df = pd.read_csv('Data_Sales_Platform - SRIBU.csv')
 dfproc = pd.read_csv('result_rfm_3cluster.csv')
 
 # Judul halaman
