@@ -6,12 +6,6 @@ import matplotlib.pyplot as plt
 
 ## data
 
-df = pd.read_csv('song_data.csv')
-
-df_proc = pd.read_csv('data_will_model.csv')
-
-
-
 st.set_page_config(page_title="Homepage",layout="wide")
 #side bar
 #st.sidebar.header("Segmentasi Pelanggan Produk HNI")
@@ -22,17 +16,26 @@ st.set_page_config(page_title="Homepage",layout="wide")
 # Menggunakan HTML dan CSS untuk membuat header dan subheader rata tengah
 st.markdown(
     """
-    <h1 style='text-align: center;'>APLIKASI MEMPREDIKSI POPULARITAS LAGU DENGAN MENGGUNAKAN ALGORITMA RANDOM FOREST</h1>
+    <h1 style='text-align: center;'>CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY,FREQUENCY,MONETARY) DAN ALGORITMA K-MEANS</h1>
     """, 
     unsafe_allow_html=True
 )
 st.write('''
         ''')
-st.markdown('''Aplikasi adalah berupa alat untuk memprediksi popularitas sebuah lagu dengan menggunakan sebuah variasi algoritma regresi,dan Kali ini,akan menganalisa data popularitas lagu dimana memiliki ranking dari 0-100 dimana apabila 0 adalah mengindikasikan apabila lagu tersebut tidak populer
+st.markdown(''' Sribu adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.
 
-Berikut adalah data yang akan diolah ''')
+Sejarah Singkat:
 
-st.write(df)
+- 2011: Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
+- 2012: Menerima pendanaan awal dari East Ventures, yang memungkinkan ekspansi layanan.
+- 2014: Mendapat investasi tambahan dari Asteria Japan dan memperluas kategori layanan untuk mencakup lebih dari sekadar desain grafis.
+- 2018: Menerima pendanaan dari Crowdworks, pasar freelance terbesar di Jepang.
+- 2022: Diakuisisi oleh Mynavi Japan dan menjadi anak perusahaan mereka.
+
+Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
+Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011. 
+''')
+
 st.markdown('''Data diatas masih berupa RAW data,yang mana nantinya akan diolah melalui beberapa proses antara lain:  
 1. Import relevant libraries
 2. Set Up the current working directory & Import Dataset
@@ -46,5 +49,3 @@ st.markdown('''Data diatas masih berupa RAW data,yang mana nantinya akan diolah 
 10. Evaluasi
         
 Berikut adalah data yang telah diolah sebelum dilakukannya scalling hingga evaluasi: ''')
-
-st.write(df_proc)
