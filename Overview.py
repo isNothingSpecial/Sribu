@@ -24,8 +24,8 @@ st.image("Sribu.png", use_column_width=True)
 
 st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
 
-col3,col4 = st.columns(2)
-with col3:
+col1,col2 = st.columns(2)
+with col1:
     st.markdown('''Sejarah Singkat Sribu :
 - 2011: Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
 - 2012: Menerima pendanaan awal dari East Ventures, yang memungkinkan ekspansi layanan.
@@ -34,22 +34,19 @@ with col3:
 - 2022: Diakuisisi oleh Mynavi Japan dan menjadi anak perusahaan mereka.
 ''')
 
-with col4:
+with col2:
     st.markdown('''Pencapaian Sribu :
 - Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
 - Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
 ''')
 
-st.markdown('''Data diatas masih berupa RAW data,yang mana nantinya akan diolah melalui beberapa proses antara lain:  
-1. Import relevant libraries
-2. Set Up the current working directory & Import Dataset
-3. Exploratory Data Analysis (EDA)
-4. Count Categorical Value
-5. Mengubah Nominal Variabel
-6. Clean the Dataset
-7. Visualizations
-8. Scalling
-9. Modelling
-10. Evaluasi
-        
-Berikut adalah data yang telah diolah sebelum dilakukannya scalling hingga evaluasi: ''')
+st.markdown('' Tujuan melakukan Clustering ini adalah untuk mengidentifikasi karakteristik pelanggan dimana dalam kasus ini adalah menggunakan Karakteristik-karakteristik,seperti :
+- Recency
+- Frequency
+- Monetary
+
+Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data tersebut diolah untuk melakukan pemetaan cluster dari data yang diperoleh tersebut,lalu setelah dimasukkan mesin akan mengolah data tersebut guna memahami dengan karakteristik sebagai berikut termasuk kedalam cluster yang mana.
+
+Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
+- Cepat dan efisien, terutama pada dataset yang besar.
+- Mudah dipahami dan diimplementasikan.''')
