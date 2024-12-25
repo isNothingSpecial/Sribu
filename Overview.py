@@ -22,7 +22,7 @@ st.markdown(
 )
 
 # Membuat tiga kolom
-col1, col2, col3,col4 = st.columns(4)
+col1, col2 = st.columns(2)
 
 # Menampilkan konten di setiap kolom
 with col1:
@@ -31,6 +31,7 @@ with col1:
 with col2:
     st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
 
+col3,col4 = st.columns(2)
 with col3:
     st.markdown('''Sejarah Singkat Sribu :
 - 2011: Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
