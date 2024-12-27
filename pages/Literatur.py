@@ -136,7 +136,6 @@ elif literatur == 'RFM Data':
     - Recency
     - Frequency
     - Monetary
-    - Cluster
 
     Berikut adalah dataset yang telah diolah dengan metode RFM dan pengclusteran dengan Algoritma K-Means :
     """)
