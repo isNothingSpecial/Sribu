@@ -3,7 +3,7 @@ import pandas as pd
 
 # Load datasets
 df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
-dfproc = pd.read_csv('result_rfm_3cluster.csv')
+dfproc = pd.read_csv('data_cleaned.csv')
 
 # Judul halaman
 st.markdown(
