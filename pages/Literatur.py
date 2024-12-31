@@ -130,14 +130,22 @@ elif literatur == 'Algoritma':
 
 elif literatur == 'RFM Data':
     st.header('Data Yang Telah Diolah')
-    st.subheader('Hasil Pengolahan dengan RFM dan K-Means')
+    st.subheader('Proses Terbentuknya Hasil Akhir Pengolahan Data dengan RFM dan K-Means')
     st.markdown("""
-    Dataset yang telah diolah menggunakan metode RFM memiliki kolom berikut:
+    Berikut adalah Dataset yang telah diolah menggunakan metode RFM dan menambahkan hasil onehot kolom Category memiliki kolom berikut:
     - Client User Id
     - Paid At
     - Recency
     - Frequency
     - Monetary
+    - Category Desain Grafis & Branding
+    - Category Gaya Hidup
+    - Category Konsultasi
+    - Category Pemasaran & Periklanan
+    - Category Penulisan & Penerjemahan
+    - Category Unknown
+    - Category Video, Fotografi & Audio
+    - Category Web & Pemrograman'
 
     Berikut adalah dataset yang telah diolah dengan metode RFM :
     """)
