@@ -1,31 +1,45 @@
 import streamlit as st
-import pandas as pd # Pandas (version : 1.1.5) 
-import numpy as np # Numpy (version : 1.19.2)
-import matplotlib.pyplot as plt # Matplotlib (version :  3.3.2)
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans # Scikit Learn (version : 0.23.2)
-import seaborn as sns # Seaborn (version : 0.11.1)
-from streamlit_webrtc import webrtc_streamer
+import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
 
-df = pd.read_csv('result_rfm_3cluster.csv')
-rfm_features = ['Recency', 'Frequency', 'Monetary']  # Replace with actual column names
+# Load dataset
+df = pd.read_csv('data_will_cluster.csv')
+
+# Define features for clustering
+rfm_features = ['Recency', 'Frequency', 'Monetary',
+                'category_Desain Grafis & Branding', 'category_Gaya Hidup',
+                'category_Konsultasi', 'category_Pemasaran & Periklanan',
+                'category_Penulisan & Penerjemahan', 'category_Unknown',
+                'category_Video, Fotografi & Audio', 'category_Web & Pemrograman']
+
 df_rfm = df[rfm_features]
 
-kms = KMeans(n_clusters=3, init='k-means++', random_state=42)
+# Fit KMeans model
+kms = KMeans(n_clusters=4, init='k-means++', random_state=42)
 kms.fit(df_rfm)
 
-st.title(''' CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY,FREQUENCY,MONETARY) DAN ALGORITMA K-MEANS ''')
-st.write('Prediksi Data Baru')
+# Streamlit App
+st.title("CLUSTERING PELANGGAN PLATFORM SRIBU")
+st.write("Prediksi Data Baru")
 
-input_recency = st.number_input ("Recency", step=1, format='%d')
-#min_value=df('precipation').min()
-#max_value=df('precipation').max()
+# Input fields
+input_recency = st.number_input("Recency", step=1, format='%d')
+input_frequency = st.number_input("Frequency", step=1, format='%d')
+input_monetary = st.number_input("Monetary", step=1, format='%d')
 
-input_frequency = st.number_input ("Frequency", step=1, format='%d')
-#min_value=df('precipation').min()
-#max_value=df('precipation').max()
+# Multiselect for categories
+categories = [
+    'category_Desain Grafis & Branding', 'category_Gaya Hidup',
+    'category_Konsultasi', 'category_Pemasaran & Periklanan',
+    'category_Penulisan & Penerjemahan', 'category_Unknown',
+    'category_Video, Fotografi & Audio', 'category_Web & Pemrograman'
+]
 
-input_monetary = st.number_input ("Monetary",step=1, format='%d')
+selected_categories = st.multiselect("Pilih kategori yang pernah diorder:", categories)
+
+# Prepare category inputs as one-hot encoding
+category_input = [1 if category in selected_categories else 0 for category in categories]
 
 result = "-"
 
@@ -33,9 +47,7 @@ result = "-"
 if st.button("Predict"):
     if input_recency > 0 and input_frequency > 0 and input_monetary > 0:
         # Prepare input data
-        new_data = np.array([[input_recency, input_frequency, input_monetary]])
-        #scaler = StandardScaler()
-        #scaled_data = scaler.fit_transform(new_data)
+        new_data = np.array([[input_recency, input_frequency, input_monetary] + category_input])
         
         # Predict cluster
         prediction = kms.predict(new_data)[0]
@@ -45,32 +57,42 @@ if st.button("Predict"):
         if prediction == 0:
             st.write(f"""
             **Cluster 0: One-Time Buyers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan yang bertipe One-Time Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki : 
             - Recency: {input_recency}
             - Frequency: {input_frequency}
             - Monetary: {input_monetary}
+            - Categories: {', '.join(selected_categories) if selected_categories else 'None'}
             
-            Sehingga pelanggan yang berada di Cluster ini bisa terbentuk karena banyak faktor,apakah mereka merupakan pelanggan baru,dimana mereka masih mencoba - coba membeli jasa-jasa freelancer yang telah disediakan oleh Sribu untuk pertama kalinya,apakah mereka merupakan pelanggan yang hanya membutuhkan jasa freelancer hanya di hari mereka order saja,sehingga hanya menggunakan jasa freelancer ketika dia membutuhkan saja. 
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe One-Time Buyers...
             """)
         elif prediction == 1:
             st.write(f"""
             **Cluster 1: Potential Buyers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Potentials Buyers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki :
             - Recency: {input_recency}
             - Frequency: {input_frequency}
-            - Monetary : {input_monetary}
+            - Monetary: {input_monetary}
+            - Categories: {', '.join(selected_categories) if selected_categories else 'None'}
             
-            Sehingga pelanggan yang berada di Cluster ini bisa terbentuk karena banyak faktor,mereka merupakan pelanggan yang memiliki frequency yang lumayan tinggi,dan history melakukan transaksi terbilang relatif singkat,dimana bisa disebakan karena Pelanggan yang berada di cluster ini terkadang membutuhkan jasa-jasa freelancer sehingga akhirnya ketika ia membutuhkan lebih memilih untuk membeli jasa-jasa freelancer yang telah disediakan oleh Sribu.
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Potential Buyers...
             """)
         elif prediction == 2:
             st.write(f"""
             **Cluster 2: Loyal Customers**  
-            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Loyal Customers,dimana Cluster tersebut merupakan dimana Pelanggan memiliki :
             - Recency: {input_recency}
             - Frequency: {input_frequency}
             - Monetary: {input_monetary}
+            - Categories: {', '.join(selected_categories) if selected_categories else 'None'}
             
-            Sehingga pelanggan yang berada di Cluster tersebut merupakan dimana Pelanggan melakukan sering sekali melakukan transaksi dengan kuantitas yang tergolong banyak dan memiliki nilai history transaksi yang rendah,dimana bisa disebakan karena Pelanggan yang berada di cluster ini sangat membutuhkan jasa-jasa freelancer sehingga akhirnya sering membeli jasa-jasa freelancer yang telah disediakan oleh Sribu.
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe Loyal Customers...
+            """)
+        elif prediction == 3:
+            st.write(f"""
+            **Cluster 3: High-Value Customers**  
+            - Recency: {input_recency}
+            - Frequency: {input_frequency}
+            - Monetary: {input_monetary}
+            - Categories: {', '.join(selected_categories) if selected_categories else 'None'}
+            
+            Pelanggan yang termasuk pada cluster ini adalah pelanggan bertipe High-Value Customers...
             """)
     else:
         st.error("Silakan masukkan semua nilai dengan benar!")
