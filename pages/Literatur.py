@@ -4,6 +4,8 @@ import pandas as pd
 # Load datasets
 df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
+dfwill = pd.read_csv('data_will_cluster.csv')
+dfcluster = pd.read_csv('data_cluster.csv')
 
 # Judul halaman
 st.markdown(
@@ -130,13 +132,31 @@ elif literatur == 'RFM Data':
     st.header('Data Yang Telah Diolah')
     st.subheader('Hasil Pengolahan dengan RFM dan K-Means')
     st.markdown("""
-    Dataset yang telah diolah menggunakan metode RFM dan algoritma K-Means memiliki kolom berikut:
+    Dataset yang telah diolah menggunakan metode RFM memiliki kolom berikut:
     - Client User Id
     - Paid At
     - Recency
     - Frequency
     - Monetary
 
-    Berikut adalah dataset yang telah diolah dengan metode RFM dan pengclusteran dengan Algoritma K-Means :
+    Berikut adalah dataset yang telah diolah dengan metode RFM :
     """)
     st.write(dfproc)
+    st.markdown("""
+    Dataset yang telah diolah menggunakan metode RFM dan dibersihkan dari outliers dan akan dimasukkan ke dalam proses clustering,memiliki perbedaan dimana jumlah data total telah berkurang dikarenakan proses pembersihan outliers :
+    - Jumlah data sebelum membersihkan outliers: 2942
+    - Jumlah data setelah membersihkan outliers: 2548
+
+    Berikut adalah dataset yang telah diolah dengan metode RFM dan telah dibersihkan dari outliers :
+    """)
+    st.write(dfwill)
+    st.markdown("""
+    Dataset yang telah diolah menggunakan metode RFM dan telah melakukan proses clustering dengan metode K-Means,dari data diatas menghasilkan persebaran cluster sebanyak 4 cluster,dengan persebaran anggota seperti berikut :
+    - Cluster 0 = 1069 anggota
+    - Cluster 1 = 770 anggota
+    - Cluster 2 = 334 anggota
+    - Cluster 3 = 375 anggota
+
+    Berikut adalah dataset final yang telah diolah dengan metode RFM dan pengclusteran dengan algoritma K-Means :
+    """)
+    st.write(dfcluster)
