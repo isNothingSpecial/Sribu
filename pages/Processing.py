@@ -28,7 +28,7 @@ input_recency = st.number_input("Recency", step=1, format='%d')
 input_frequency = st.number_input("Frequency", step=1, format='%d')
 input_monetary = st.number_input("Monetary", step=1, format='%d')
 
-# Multiselect for categories
+# Checkbox for categories
 categories = [
     'category_Desain Grafis & Branding', 'category_Gaya Hidup',
     'category_Konsultasi', 'category_Pemasaran & Periklanan',
@@ -36,7 +36,11 @@ categories = [
     'category_Video, Fotografi & Audio', 'category_Web & Pemrograman'
 ]
 
-selected_categories = st.multiselect("Pilih kategori yang pernah diorder:", categories)
+# Generate checkboxes for each category
+selected_categories = []
+for category in categories:
+    if st.checkbox(category):
+        selected_categories.append(category)
 
 # Prepare category inputs as one-hot encoding
 category_input = [1 if category in selected_categories else 0 for category in categories]
