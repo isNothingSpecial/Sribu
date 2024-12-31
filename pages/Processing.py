@@ -20,7 +20,7 @@ kms = KMeans(n_clusters=4, init='k-means++', random_state=42)
 kms.fit(df_rfm)
 
 # Streamlit App
-st.title("CLUSTERING PELANGGAN PLATFORM SRIBU")
+st.title("CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFMC (RECENCY, FREQUENCY, MONETARY, AND CATEGORY) DAN ALGORITMA K-MEANS")
 st.write("Prediksi Data Baru")
 
 # Input fields
