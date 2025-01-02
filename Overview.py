@@ -9,24 +9,7 @@ import importlib
 
 st.set_page_config(page_title="Homepage",layout="wide")
 #side bar
-# Daftar halaman utama
-main_pages = {
-    "Literatur": "Uji Coba Dropdown Page",
-    "Processing": "Processing",  # Hanya page ini yang memiliki sub-page
-}
 
-# Sidebar untuk navigasi
-with st.sidebar:
-    st.header("Literatur Page")
-    main_page_choice = st.selectbox("Select Sub Page", list(main_pages.keys()))
-
-# Fungsi untuk memuat halaman
-def load_page(page_name):
-    module = importlib.import_module(f"pages.{pages[page_name]}")
-    module.run()
-
-# Jalankan halaman yang dipilih
-load_page(selected_page)
 ##layout
 
 # Menggunakan HTML dan CSS untuk membuat header dan subheader rata tengah
