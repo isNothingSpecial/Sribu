@@ -16,12 +16,22 @@ st.markdown(
 )
 
 # Pilihan literatur
-st.write("Literatur Pengertian Setiap Kolom")
-lit = ['" "','Dataset Awal', 'Algoritma', 'RFM Data']
+st.markdown('''Literatur dan Story Telling Analitical Process
+Dimana pada halaman ini berisi tentang penjelasan tentang setiap Proses yang dilakukan selama proses analisis berjalan,berawal dari :
+- Dataset Awal
+- Explorasi Dataset
+- Visualisasi Insight yang diperoleh dalam Dataset
+- Algoritma apa yang akan Dipakai
+- Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner
+- Pengolahan Data Menggunakan Metode RFM
+- Clustering Data
+
+''')
+lit = [' ','Dataset Awal', 'Algoritma', 'RFM Data']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
-if literatur == '" "' :
+if literatur == ' ' :
     st.warning("Silakan pilih opsi Hal yang ingin diketahui untuk melanjutkan.")
 elif literatur == 'Dataset Awal':
     st.header('Dataset Awal')
