@@ -17,7 +17,7 @@ st.markdown(
 
 # Pilihan literatur
 st.write("Literatur Pengertian Setiap Kolom")
-lit = ['" ",Dataset Awal', 'Algoritma', 'RFM Data']
+lit = ['" "','Dataset Awal', 'Algoritma', 'RFM Data']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
