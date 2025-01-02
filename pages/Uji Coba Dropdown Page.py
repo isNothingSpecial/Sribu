@@ -15,22 +15,3 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
-# Daftar halaman utama
-main_pages = {
-    "Main Page": "Uji Coba Dropdown Page",
-    "Page 1": "Literatur"  # Hanya page ini yang memiliki sub-page
-}
-
-# Sidebar untuk navigasi
-with st.sidebar:
-    st.header("Navigation")
-    main_page_choice = st.selectbox("Main Pages", list(main_pages.keys()))
-
-# Fungsi untuk memuat modul halaman
-def load_page(module_name):
-    module = importlib.import_module(f"pages.{module_name}")
-    module.run()
-
-# Logika untuk memuat halaman utama
-load_page(main_pages[main_page_choice])
