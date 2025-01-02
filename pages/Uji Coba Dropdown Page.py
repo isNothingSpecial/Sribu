@@ -3,20 +3,23 @@ import pandas as pd
 import importlib
 
 # Daftar halaman utama
-main_pages = {
+pages = {
     "Literatur": "Literatur.py",
     "Profil": "Profil Kelompok.py"
 }
 
 # Sidebar untuk navigasi
 with st.sidebar:
-    st.header("Literatur Page")
-    main_page_choice = st.selectbox("Select Sub Page", list(main_pages.keys()))
+    st.title("Navigation")
+    selected_page = st.selectbox("Select Sub Page", list(pages.keys()))
 
 # Fungsi untuk memuat halaman
 def load_page(page_name):
     module = importlib.import_module(f"pages.{pages[page_name]}")
     module.run()
+
+# Jalankan halaman yang dipilih
+load_page(selected_page)
 
 # Jalankan halaman yang dipilih
 load_page(selected_page)
