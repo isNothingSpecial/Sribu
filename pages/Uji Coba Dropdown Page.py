@@ -2,6 +2,25 @@ import streamlit as st
 import pandas as pd
 import importlib
 
+# Daftar halaman utama
+main_pages = {
+    "Literatur": "Literatur.py",
+    "Profil": "Profil Kelompok.py"
+}
+
+# Sidebar untuk navigasi
+with st.sidebar:
+    st.header("Literatur Page")
+    main_page_choice = st.selectbox("Select Sub Page", list(main_pages.keys()))
+
+# Fungsi untuk memuat halaman
+def load_page(page_name):
+    module = importlib.import_module(f"pages.{pages[page_name]}")
+    module.run()
+
+# Jalankan halaman yang dipilih
+load_page(selected_page)
+
 # Load datasets
 df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
@@ -15,18 +34,3 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
-def run():
-    st.title("Uji Coba Dropdown Page")
-
-    # Dropdown untuk sub-pages
-    sub_page_choice = st.selectbox("Choose Sub-page", ["Literatur", "Profil Kelompok"])
-
-    # Memuat modul berdasarkan sub-page yang dipilih
-    if sub_page_choice == "Literatur":
-        sub_module = importlib.import_module("pages.page_1a")
-    elif sub_page_choice == "Profil Kelompok":
-        sub_module = importlib.import_module("pages.page_1b")
-    
-    # Jalankan fungsi `run` dari modul sub-page
-    sub_module.run()
