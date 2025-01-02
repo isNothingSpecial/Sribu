@@ -10,18 +10,20 @@ dfcluster = pd.read_csv('data_cluster.csv')
 # Judul halaman
 st.markdown(
     """
-    <h1 style='text-align: center;'>CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY, FREQUENCY, MONETARY) DAN ALGORITMA K-MEANS</h1>
+    <h1 style='text-align: center;'>Literatur dan Story Telling Analitical Process</h1>
     """, 
     unsafe_allow_html=True
 )
 
 # Pilihan literatur
 st.write("Literatur Pengertian Setiap Kolom")
-lit = ['Dataset Awal', 'Algoritma', 'RFM Data']
+lit = ['" ",Dataset Awal', 'Algoritma', 'RFM Data']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
-if literatur == 'Dataset Awal':
+if literatur == '" " :
+    st.warning("Silakan pilih opsi Hal yang ingin diketahui untuk melanjutkan.")
+elif literatur == 'Dataset Awal':
     st.header('Dataset Awal')
     st.markdown("""
     Dataset yang digunakan adalah dataset transaksi pelanggan selama 1 tahun dari Platform Sribu, yang memiliki kolom-kolom berikut:
