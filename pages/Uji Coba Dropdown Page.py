@@ -4,8 +4,8 @@ import importlib
 
 # Daftar halaman utama
 pages = {
-    "Literatur": "Literatur.py",
-    "Profil": "Profil Kelompok.py"
+    "Literatur": "Literatur",
+    "Profil": "Profil Kelompok"
 }
 
 # Sidebar untuk navigasi
