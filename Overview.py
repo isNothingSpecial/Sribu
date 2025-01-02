@@ -43,6 +43,7 @@ st.markdown(''' Tujuan melakukan Clustering ini adalah untuk mengidentifikasi ka
 - Recency
 - Frequency
 - Monetary
+- Category
 
 Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data tersebut diolah untuk melakukan pemetaan cluster dari data yang diperoleh tersebut,lalu setelah dimasukkan mesin akan mengolah data tersebut guna memahami dengan karakteristik sebagai berikut termasuk kedalam cluster yang mana.
 
