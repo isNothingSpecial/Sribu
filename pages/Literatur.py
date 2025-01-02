@@ -21,7 +21,7 @@ lit = ['" ",Dataset Awal', 'Algoritma', 'RFM Data']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
-if literatur == '" " :
+if literatur == '" "' :
     st.warning("Silakan pilih opsi Hal yang ingin diketahui untuk melanjutkan.")
 elif literatur == 'Dataset Awal':
     st.header('Dataset Awal')
