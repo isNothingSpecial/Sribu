@@ -18,9 +18,8 @@ st.markdown(
 
 # Daftar halaman utama
 main_pages = {
-    "Main Page": "main_page",
-    "Page 1": "page_1",  # Hanya page ini yang memiliki sub-page
-    "Page 2": "page_2"
+    "Main Page": "Uji Coba Dropdown Page",
+    "Page 1": "Literatur"  # Hanya page ini yang memiliki sub-page
 }
 
 # Sidebar untuk navigasi
