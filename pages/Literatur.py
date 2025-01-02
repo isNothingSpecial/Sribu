@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+
+def run():
 # Load datasets
 df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
