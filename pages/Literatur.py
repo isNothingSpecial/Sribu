@@ -27,7 +27,7 @@ Dimana pada halaman ini berisi tentang penjelasan tentang setiap Proses yang dil
 - Clustering Data
 
 ''')
-lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Visualisasi Insight','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
+lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Treatment Terhadap NULL VALUE','Visualisasi Insight','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
@@ -62,8 +62,93 @@ elif literatur == 'Explorasi Dataset':
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
     - Imputasi Nilai NULL Value''')
 
-    lital = ['RFM', 'K-Means']
-    literatural = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', lital)
+    # Inisialisasi session_state untuk tombol
+    if "iya_pressed" not in st.session_state:
+        st.session_state.iya_pressed = False
+    if "tidak_pressed" not in st.session_state:
+        st.session_state.tidak_pressed = False
+    # Tombol Iya dan Tidak
+        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
+        col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Iya"):
+            st.session_state.iya_pressed = True
+            st.session_state.tidak_pressed = False
+    with col2:
+        if st.button("Tidak"):
+            st.session_state.iya_pressed = False
+            st.session_state.tidak_pressed = True
+
+        # Logika berdasarkan tombol yang ditekan
+        if st.session_state.iya_pressed:
+            st.header("Pilih Penjelasan Explorasi Dataset yang ingin Anda Ketahui")
+            litex = ['Peninjauan Info Dataset', 'Pengecheckan NULL VALUE','Peninjauan Data yang memiliki NULL VALUE']
+            literaturex = st.radio('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', litex)
+
+            if literaturex == 'Peninjauan Info Dataset':
+                st.header('Peninjauan Tipe Data')
+                st.subheader('Melihat Tipe Data dari setiap kolom')
+                st.markdown(f''' Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info info yang dimiliki oleh dataset yang akan dianalisis seperti :
+                - Nama Kolom
+                - Value Kolom (Non NULL)
+                - Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
+
+                Berikut info yang diperoleh dari Dataset Transaksi Platform SRIBU selama 1 tahun :
+                - 0   nama_jobs       8233 non-null   object        
+                - 1   type            8233 non-null   object        
+                - 2   category        6711 non-null   object        
+                - 3   subcategory     6711 non-null   object        
+                - 4   client_user_id  8194 non-null   object        
+                - 5   register_date   8233 non-null   datetime64[ns]
+                - 6   order_date      8233 non-null   datetime64[ns]
+                - 7   status_invoice  4921 non-null   object        
+                - 8   paid_at         8233 non-null   datetime64[ns]
+                - 9   total_paid      8233 non-null   int64 
+                ''')
+            elif literaturrex == 'Pengecheckan NULL VALUE':
+                st.header('Pengecheckan NULL VALUE')
+                st.subheader('Pengecheckan NULL VALUE di setiap kolom')
+                st.markdown(f''' Dalam proses Pengecheckan NULL VALUE dilakukan setelah melakukan Peninjauan Info Dataset,dimana apabila dalam informasi value kolom Non NULL,
+                memiliki nilai yang berbeda dari total value yang dimiliki oleh dataset maka patut dilakukan Pengecheckan NULL VALUE,dimana dengan memakai perintah (.isnull dan .sum) maka akan menghasilkan informasi rangkuman NULL VALUE setiap kolom
+
+                Berikut adalah rangkuman NULL VALUE dari Setiap Kolom :
+                - **nama_jobs**	      memiliki NULL VALUE sejumlah : 0
+                - **type**	          memiliki NULL VALUE sejumlah : 0
+                - **category**	      memiliki NULL VALUE sejumlah : 1522
+                - **subcategory**	  memiliki NULL VALUE sejumlah : 1522
+                - **client_user_id**  memiliki NULL VALUE sejumlah : 39
+                - **register_date**	  memiliki NULL VALUE sejumlah : 0
+                - **order_date**	  memiliki NULL VALUE sejumlah : 0
+                - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
+                - **paid_at**	      memiliki NULL VALUE sejumlah : 0
+                - **total_paid**	  memiliki NULL VALUE sejumlah : 0
+                ''')
+                st.write("""
+                Dimana dari rangkuman diatas,terlihat ada NULL VALUE di beberapa kolom,diantaranya :
+                - **category**	      memiliki NULL VALUE sejumlah : 1522
+                - **subcategory**	  memiliki NULL VALUE sejumlah : 1522
+                - **client_user_id**  memiliki NULL VALUE sejumlah : 39
+                - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
+
+                sehingga dengan adanya NULL VALUE ini harus ada tindakan Konfirmasi Ulang terhadap pemilik data,setelah mendapatkan info dari pemilik data,maka dapat dilakukan proses selanjutnya yakni :
+                - Penghapusan NULL VALUE
+                - Imputasi NULL VALUE
+                """)
+            elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
+                st.header('Peninjauan Data yang memiliki NULL VALUE')
+                st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
+                st.write("""
+                """)
+            elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
+                st.header('Peninjauan Data yang memiliki NULL VALUE')
+                st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
+                st.write("""
+                """)
+        elif st.session_state.tidak_pressed:
+            st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
+elif literatur == 'Treatment Terhadap NULL VALUE':
+    st.header('Treatment Terhadap NULL VALUE')
+    st.subheader('Cara untuk memperlakukan NULL VALUE')
 elif literatur == 'Algoritma':
     st.header('Algoritma')
     st.subheader('RFMC dan K-Means')
