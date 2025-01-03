@@ -69,7 +69,9 @@ elif literatur == 'Explorasi Dataset':
         st.session_state.tidak_pressed = False
     # Tombol Iya dan Tidak
         st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
+        
         col1, col2 = st.columns(2)
+        
         with col1:
             if st.button("Iya"):
                 st.session_state.iya_pressed = True
