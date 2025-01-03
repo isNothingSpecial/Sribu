@@ -27,7 +27,7 @@ Dimana pada halaman ini berisi tentang penjelasan tentang setiap Proses yang dil
 - Clustering Data
 
 ''')
-lit = [' ','Dataset Awal', 'Algoritma', 'RFM Data']
+lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Visualisasi Insight','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
@@ -52,9 +52,21 @@ elif literatur == 'Dataset Awal':
     """)
     st.write(df)
 
+elif literatur == 'Explorasi Dataset':
+    st.header('Explorasi Dataset')
+    st.subheader('Kegiatan Menjelajahi hal dasar yang dimiliki oleh dataset')
+
+    st.markdown('''Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
+    - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
+    - Pengecheckan NULL VALUE yang dimiliki oleh dataset 
+    - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
+    - Imputasi Nilai NULL Value''')
+
+    lital = ['RFM', 'K-Means']
+    literatural = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', lital)
 elif literatur == 'Algoritma':
     st.header('Algoritma')
-    st.subheader('RFM dan K-Means')
+    st.subheader('RFMC dan K-Means')
 
     lital = ['RFM', 'K-Means']
     literatural = st.selectbox('Pilih penjelasan algoritma yang ingin Anda ketahui:', lital)
