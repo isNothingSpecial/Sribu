@@ -169,9 +169,9 @@ elif literatur == 'Algoritma':
         """)
 
         # Inisialisasi session_state untuk tombol
-        if "iya_pressed" not in st.session_state:
+        if "algo_iya_pressed" not in st.session_state:
             st.session_state.iya_pressed = False
-        if "tidak_pressed" not in st.session_state:
+        if "algo_tidak_pressed" not in st.session_state:
             st.session_state.tidak_pressed = False
 
         # Tombol Iya dan Tidak
@@ -179,15 +179,15 @@ elif literatur == 'Algoritma':
         col1, col2 = st.columns(2)
         with col1:
             if st.button("Iya"):
-                st.session_state.iya_pressed = True
-                st.session_state.tidak_pressed = False
+                st.session_state.algo_iya_pressed = True
+                st.session_state.algo_tidak_pressed = False
         with col2:
             if st.button("Tidak"):
-                st.session_state.iya_pressed = False
-                st.session_state.tidak_pressed = True
+                st.session_state.algo_iya_pressed = False
+                st.session_state.algo_tidak_pressed = True
 
         # Logika berdasarkan tombol yang ditekan
-        if st.session_state.iya_pressed:
+        if st.session_state.algo_iya_pressed:
             st.header("Pilih Penjelasan RFM yang ingin Anda Ketahui")
             litrfm = ['Recency', 'Frequency', 'Monetary']
             literaturrfm = st.selectbox('Pilih aspek RFM:', litrfm)
@@ -216,7 +216,7 @@ elif literatur == 'Algoritma':
                 - **Pengukuran**: Jumlah total uang yang dihabiskan pelanggan dalam transaksi mereka.
                 - **Mengapa Penting**: Pelanggan dengan pengeluaran lebih besar memberikan kontribusi lebih besar pada pendapatan perusahaan.
                 """)
-        elif st.session_state.tidak_pressed:
+        elif st.session_state.algo_tidak_pressed:
             st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
     elif literatural == 'K-Means':
