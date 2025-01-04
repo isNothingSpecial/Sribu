@@ -143,11 +143,6 @@ elif literatur == 'Explorasi Dataset':
                     st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
                     st.write("""
                     """)
-                elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
-                    st.header('Peninjauan Data yang memiliki NULL VALUE')
-                    st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
-                    st.write("""
-                    """)
             elif st.session_state.ex_tidak_pressed:
                 st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
