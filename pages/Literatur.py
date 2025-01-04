@@ -60,7 +60,9 @@ elif literatur == 'Explorasi Dataset':
     - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
     - Pengecheckan NULL VALUE yang dimiliki oleh dataset 
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
-    - Imputasi Nilai NULL Value''')
+    - Imputasi Nilai NULL Value
+    
+    ''')
 
     # Inisialisasi session_state untuk tombol
     if "iya_pressed" not in st.session_state:
