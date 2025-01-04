@@ -169,6 +169,7 @@ elif literatur == 'Treatment Terhadap Dataset':
         st.header('Imputasi NULL VALUE')
         st.subheader('Mengubah nilai-nilai NULL VALUE dari setiap kolom ')
         st.markdown(f""" Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
+       
         - Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
         - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
         
