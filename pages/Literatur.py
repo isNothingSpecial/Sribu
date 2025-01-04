@@ -168,12 +168,11 @@ elif literatur == 'Treatment Terhadap Dataset':
     if literaturttreat =='Imputasi NULL VALUE':
         st.header('Imputasi NULL VALUE')
         st.subheader('Mengubah nilai-nilai NULL VALUE dari setiap kolom ')
-        st.markdown(f""" Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
-       
+        st.write(""" Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
         - Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
-        - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
+        - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom """)
         
-        Berikut adalah langkah-langkah untuk melakukan Imputasi NULL VALUE :
+        st.markdown(f"""Berikut adalah langkah-langkah untuk melakukan Imputasi NULL VALUE :
         - df['status_invoice'] = df['status_invoice'].fillna('success')
         - df['category'] = df['category'].fillna('Unknown')
         - df['subcategory'] = df['subcategory'].fillna('Unknown')
