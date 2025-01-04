@@ -114,16 +114,16 @@ elif literatur == 'Explorasi Dataset':
             memiliki nilai yang berbeda dari total value yang dimiliki oleh dataset maka patut dilakukan Pengecekan NULL VALUE,dimana dengan memakai perintah (.isnull dan .sum) maka akan menghasilkan informasi rangkuman NULL VALUE setiap kolom
 
             Berikut adalah rangkuman NULL VALUE dari Setiap Kolom :
-            - **nama_jobs**        memiliki NULL VALUE sejumlah : 0
-            - **type**             memiliki NULL VALUE sejumlah : 0
-            - **category**         memiliki NULL VALUE sejumlah : 1522
-            - **subcategory**      memiliki NULL VALUE sejumlah : 1522
-            - **client_user_id**   memiliki NULL VALUE sejumlah : 39
-            - **register_date**    memiliki NULL VALUE sejumlah : 0
-            - **order_date**       memiliki NULL VALUE sejumlah : 0
-            - **status_invoice**   memiliki NULL VALUE sejumlah : 3312
-            - **paid_at**          memiliki NULL VALUE sejumlah : 0
-            - **total_paid**       memiliki NULL VALUE sejumlah : 0
+            - nama_jobs        memiliki NULL VALUE sejumlah : 0
+            - type             memiliki NULL VALUE sejumlah : 0
+            - category         memiliki NULL VALUE sejumlah : 1522
+            - subcategory      memiliki NULL VALUE sejumlah : 1522
+            - client_user_id   memiliki NULL VALUE sejumlah : 39
+            - register_date    memiliki NULL VALUE sejumlah : 0
+            - order_date       memiliki NULL VALUE sejumlah : 0
+            - status_invoice   memiliki NULL VALUE sejumlah : 3312
+            - paid_at          memiliki NULL VALUE sejumlah : 0
+            - total_paid       memiliki NULL VALUE sejumlah : 0
             ''')
         elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
             st.header('Peninjauan Data yang memiliki NULL VALUE')
