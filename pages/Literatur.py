@@ -218,10 +218,12 @@ elif literatur == 'Treatment Terhadap Dataset':
         
         - IQR = Q3-Q1""")
 
-        st.markdown("""Setelah mengetahui nilai IQRnya dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut dimana memiliki rumus sebagai berikut :
-        
-        - lower_bound = Q1 - 1.5 * IQR
-        - upper_bound = Q3 + 1.5 * IQR""")
+st.markdown("""
+Setelah mengetahui nilai IQRnya, dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom `total_paid` tersebut di mana memiliki rumus sebagai berikut:
+
+- `lower_bound = Q1 - 1.5 * IQR`
+- `upper_bound = Q3 + 1.5 * IQR`
+""")
 
         st.markdown("""Setelah menghitung IQR,batas atas dan batas bawah,lalu step terakhir adalah menyaring total value yang ada dalam kolom total_paid dengan hasil batas atas dan batas bawah dari hasil yang telah dihitung tadi,dimana melalui alur sebagai berikut :
         
