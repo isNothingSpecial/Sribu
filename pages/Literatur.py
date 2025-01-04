@@ -170,9 +170,9 @@ elif literatur == 'Algoritma':
 
         # Inisialisasi session_state untuk tombol
         if "algo_iya_pressed" not in st.session_state:
-            st.session_state.iya_pressed = False
+            st.session_state.algo_iya_pressed = False
         if "algo_tidak_pressed" not in st.session_state:
-            st.session_state.tidak_pressed = False
+            st.session_state.algo_tidak_pressed = False
 
         # Tombol Iya dan Tidak
         st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
