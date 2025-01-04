@@ -186,9 +186,10 @@ elif literatur == 'Treatment Terhadap Dataset':
     elif literaturttreat =='Pengecheckan Outliers':
         st.header('Pengecheckan Outliers')
         st.subheader('Pengecheckan data yang merupakan Outliers dalam kolom numerik dalam dataset')
-        st.markdown(""" Outliers adalah nilai-nilai yang sangat berbeda atau tidak biasa dalam sebuah dataset jika dibandingkan dengan nilai-nilai lainnya. Outliers bisa berupa data yang secara signifikan lebih besar atau lebih kecil dari sebagian besar data lainnya. Mereka sering kali dapat memengaruhi analisis statistik, model prediksi, dan kesimpulan yang diambil dari data.
+        st.write('Outliers adalah nilai-nilai yang sangat berbeda atau tidak biasa dalam sebuah dataset jika dibandingkan dengan nilai-nilai lainnya. Outliers bisa berupa data yang secara signifikan lebih besar atau lebih kecil dari sebagian besar data lainnya. Mereka sering kali dapat memengaruhi analisis statistik, model prediksi, dan kesimpulan yang diambil dari data.')
 
-        Pentingnya melakukan Pengecheckan Outliers dalam dataset memiliki beberapa manfaat,diantaranya :
+        st.markdown("""Pentingnya melakukan Pengecheckan Outliers dalam dataset memiliki beberapa manfaat,diantaranya :
+        
         - Meningkatkan Akurasi Terhadap Model
         - Mencegah Bias dalam Statistik
         - Memahami Pola Tidak Biasa
@@ -206,29 +207,32 @@ elif literatur == 'Treatment Terhadap Dataset':
     elif literaturttreat =='Pembersihan Outliers':
         st.header('Pembersihan Outliers')
         st.subheader('Melakukan Treatment kepada anomali Outliers')
-        st.markdown(f""" Dalam Pembersihan Outliers kali ini adalah menggunakan metode Interquartile Range (IQR), dimana memiliki langkah-langkah di antaranya:
+        st.write('Dalam Pembersihan Outliers kali ini adalah menggunakan metode Interquartile Range (IQR), dimana memiliki langkah-langkah di antaranya:')
 
-        Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas, dengan menggunakan IQR dari kolom total_paid, dimana :
+        st.markdown(""" Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas, dengan menggunakan IQR dari kolom total_paid, dimana :
 
         - Kuartil Bawah (Q1) : adalah nilai dari kolom `total_paid` di mana 25% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 10,000  
-        - Kuartil Atas (Q3) : adalah nilai dari kolom `total_paid` di mana 75% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 638,931
+        - Kuartil Atas (Q3) : adalah nilai dari kolom `total_paid` di mana 75% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 638,931""")
             
-        Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
-        - IQR = Q3-Q1
+        st.markdown("""Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
+        
+        - IQR = Q3-Q1""")
 
-        Setelah mengetahui nilai IQRnya dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut dimana memiliki rumus sebagai berikut :
+        st.markdown("""Setelah mengetahui nilai IQRnya dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut dimana memiliki rumus sebagai berikut :
+        
         - lower_bound = Q1 - 1.5 * IQR
-        - upper_bound = Q3 + 1.5 * IQR
+        - upper_bound = Q3 + 1.5 * IQR""")
 
-        Setelah menghitung IQR,batas atas dan batas bawah,lalu step terakhir adalah menyaring total value yang ada dalam kolom total_paid dengan hasil batas atas dan batas bawah dari hasil yang telah dihitung tadi,dimana melalui alur sebagai berikut :
-        - df3_cleaned = df3[(df3['total_paid'] >= lower_bound) & (df3['total_paid'] <= upper_bound)]
+        st.markdown("""Setelah menghitung IQR,batas atas dan batas bawah,lalu step terakhir adalah menyaring total value yang ada dalam kolom total_paid dengan hasil batas atas dan batas bawah dari hasil yang telah dihitung tadi,dimana melalui alur sebagai berikut :
+        
+        - df3_cleaned = df3[(df3['total_paid'] >= lower_bound) & (df3['total_paid'] <= upper_bound)]""")
 
-        Dimana step tersebut memiliki arti apabila :
+        st.markdown("""Dimana step tersebut memiliki arti apabila :
+        
         - Data di kolom total_paid yang lebih besar atau sama dengan lower_bound dan
-        - Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound
+        - Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound""")
 
-        Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah df3_cleaned.
-        """)
+        st.write('Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah df3_cleaned.')
 
 elif literatur == 'Algoritma':
     st.header('Algoritma')
