@@ -31,7 +31,7 @@ Dimana pada halaman ini berisi tentang penjelasan tentang setiap Proses yang dil
 - Clustering Data
 
 ''')
-lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Treatment Terhadap NULL VALUE','Visualisasi Insight','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
+lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Treatment Terhadap Dataset','Visualisasi Insight','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
@@ -140,19 +140,27 @@ elif literatur == 'Explorasi Dataset':
             st.write("2. Status Invoice yang merupakan NULL VALUE sebanyak 1860 baris, dimana sebanyak 1860 data transaksi tersebut memiliki Total Paid = 0,dan Status Invoicenya tidak jelas :")
             st.write(df_missing3)
             
-            st.write("3. Kolom Kategori yang merupakan NULL VALUE sebanyak 1452 baris memiliki informasi sebagai berikut :")
+            st.write("3. Kolom Kategori yang merupakan NULL VALUE sebanyak 1522 baris memiliki informasi sebagai berikut :")
             st.write(df_missing2)
 
-            st.write("4. Kolom Sub Kategori yang merupakan NULL VALUE sebanyak 1860 baris memiliki informasi sebagai berikut :")
+            st.write("4. Kolom Sub Kategori yang merupakan NULL VALUE sebanyak 1522 baris memiliki informasi sebagai berikut :")
             st.write(df_missing4)
+
+            st.write("5. Client User ID yang merupakan NULL VALUE atau User yang tanpa nama namun tetap memiliki data transaksi sebanyak 39 baris memiliki informasi sebagai berikut :")
+            st.write(df_missing5)
             
     elif st.session_state.ex_tidak_pressed:
         st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 
-elif literatur == 'Treatment Terhadap NULL VALUE':
-    st.header('Treatment Terhadap NULL VALUE')
-    st.subheader('Cara untuk memperlakukan NULL VALUE')
+elif literatur == 'Treatment Terhadap Dataset':
+    st.header('Treatment Terhadap Dataset')
+    st.subheader('Cara untuk memperlakukan Dataset sebelum analisis')
+    st.markdown(""" Berikut adalah treatment-treatment untuk melihat anomali dalam dataset dan penananganannya,diantaranya adalah :
+    1. Imputasi NULL VALUE 
+    2. Pengecheckan Outliers
+    3. Pembersihan Outliers
+    4. """)
 elif literatur == 'Algoritma':
     st.header('Algoritma')
     st.subheader('RFMC dan K-Means')
