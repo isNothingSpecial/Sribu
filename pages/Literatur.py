@@ -56,12 +56,11 @@ elif literatur == 'Explorasi Dataset':
     st.header('Explorasi Dataset')
     st.subheader('Kegiatan Menjelajahi hal dasar yang dimiliki oleh dataset')
 
-    st.markdown(""" Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
+    st.markdown(""" Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
     - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
-    - Pengecheckan NULL VALUE yang dimiliki oleh dataset 
+    - Pengecekan NULL VALUE yang dimiliki oleh dataset 
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
     - Imputasi Nilai NULL Value
-    
     """)
 
     # Inisialisasi session_state untuk tombol
@@ -69,82 +68,70 @@ elif literatur == 'Explorasi Dataset':
         st.session_state.ex_iya_pressed = False
     if "ex_tidak_pressed" not in st.session_state:
         st.session_state.ex_tidak_pressed = False
-    
-        # Tombol Iya dan Tidak
-        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang Explorasi Dataset?")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            if st.button("Iya"):
-                st.session_state.ex_iya_pressed = True
-                st.session_state.ex_tidak_pressed = False
-        with col2:
-            if st.button("Tidak"):
-                st.session_state.ex_iya_pressed = False
-                st.session_state.ex_tidak_pressed = True
 
-        # Logika berdasarkan tombol yang ditekan
-            if st.session_state.ex_iya_pressed:
-                st.header("Pilih Penjelasan Explorasi Dataset yang ingin Anda Ketahui")
-                litex = ['Peninjauan Info Dataset', 'Pengecheckan NULL VALUE','Peninjauan Data yang memiliki NULL VALUE']
-                literaturex = st.selectbox('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', litex)
+    # Tombol Iya dan Tidak
+    st.write("Apakah Anda ingin penjelasan lebih lanjut tentang Explorasi Dataset?")
+    col1, col2 = st.columns(2)
 
-                if literaturex == 'Peninjauan Info Dataset':
-                    st.header('Peninjauan Tipe Data')
-                    st.subheader('Melihat Tipe Data dari setiap kolom')
-                    st.markdown(f''' Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info info yang dimiliki oleh dataset yang akan dianalisis seperti :
-                    - Nama Kolom
-                    - Value Kolom (Non NULL)
-                    - Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
+    with col1:
+        if st.button("Iya"):
+            st.session_state.ex_iya_pressed = True
+            st.session_state.ex_tidak_pressed = False
+    with col2:
+        if st.button("Tidak"):
+            st.session_state.ex_iya_pressed = False
+            st.session_state.ex_tidak_pressed = True
 
-                    Berikut info yang diperoleh dari Dataset Transaksi Platform SRIBU selama 1 tahun :
-                    - 0   nama_jobs       8233 non-null   object        
-                    - 1   type            8233 non-null   object        
-                    - 2   category        6711 non-null   object        
-                    - 3   subcategory     6711 non-null   object        
-                    - 4   client_user_id  8194 non-null   object        
-                    - 5   register_date   8233 non-null   datetime64[ns]
-                    - 6   order_date      8233 non-null   datetime64[ns]
-                    - 7   status_invoice  4921 non-null   object        
-                    - 8   paid_at         8233 non-null   datetime64[ns]
-                    - 9   total_paid      8233 non-null   int64 
-                    ''')
-                elif literaturrex == 'Pengecheckan NULL VALUE':
-                    st.header('Pengecheckan NULL VALUE')
-                    st.subheader('Pengecheckan NULL VALUE di setiap kolom')
-                    st.markdown(f''' Dalam proses Pengecheckan NULL VALUE dilakukan setelah melakukan Peninjauan Info Dataset,dimana apabila dalam informasi value kolom Non NULL,
-                    memiliki nilai yang berbeda dari total value yang dimiliki oleh dataset maka patut dilakukan Pengecheckan NULL VALUE,dimana dengan memakai perintah (.isnull dan .sum) maka akan menghasilkan informasi rangkuman NULL VALUE setiap kolom
+    # Logika berdasarkan tombol yang ditekan
+    if st.session_state.ex_iya_pressed:
+        st.header("Pilih Penjelasan Explorasi Dataset yang ingin Anda Ketahui")
+        litex = ['Peninjauan Info Dataset', 'Pengecekan NULL VALUE', 'Peninjauan Data yang memiliki NULL VALUE']
+        literaturex = st.selectbox('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', litex)
 
-                    Berikut adalah rangkuman NULL VALUE dari Setiap Kolom :
-                    - **nama_jobs**	      memiliki NULL VALUE sejumlah : 0
-                    - **type**	          memiliki NULL VALUE sejumlah : 0
-                    - **category**	      memiliki NULL VALUE sejumlah : 1522
-                    - **subcategory**	  memiliki NULL VALUE sejumlah : 1522
-                    - **client_user_id**  memiliki NULL VALUE sejumlah : 39
-                    - **register_date**	  memiliki NULL VALUE sejumlah : 0
-                    - **order_date**	  memiliki NULL VALUE sejumlah : 0
-                    - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
-                    - **paid_at**	      memiliki NULL VALUE sejumlah : 0
-                    - **total_paid**	  memiliki NULL VALUE sejumlah : 0
-                    ''')
-                    st.write("""
-                    Dimana dari rangkuman diatas,terlihat ada NULL VALUE di beberapa kolom,diantaranya :
-                    - **category**	      memiliki NULL VALUE sejumlah : 1522
-                    - **subcategory**	  memiliki NULL VALUE sejumlah : 1522
-                    - **client_user_id**  memiliki NULL VALUE sejumlah : 39
-                    - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
+        if literaturex == 'Peninjauan Info Dataset':
+            st.header('Peninjauan Tipe Data')
+            st.subheader('Melihat Tipe Data dari setiap kolom')
+            st.markdown(f''' Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info-info yang dimiliki oleh dataset yang akan dianalisis seperti :
+            - Nama Kolom
+            - Value Kolom (Non NULL)
+            - Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
 
-                    sehingga dengan adanya NULL VALUE ini harus ada tindakan Konfirmasi Ulang terhadap pemilik data,setelah mendapatkan info dari pemilik data,maka dapat dilakukan proses selanjutnya yakni :
-                    - Penghapusan NULL VALUE
-                    - Imputasi NULL VALUE
-                    """)
-                elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
-                    st.header('Peninjauan Data yang memiliki NULL VALUE')
-                    st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
-                    st.write("""
-                    """)
-            elif st.session_state.ex_tidak_pressed:
-                st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
+            Berikut info yang diperoleh dari Dataset Transaksi Platform SRIBU selama 1 tahun :
+            - 0   nama_jobs       8233 non-null   object        
+            - 1   type            8233 non-null   object        
+            - 2   category        6711 non-null   object        
+            - 3   subcategory     6711 non-null   object        
+            - 4   client_user_id  8194 non-null   object        
+            - 5   register_date   8233 non-null   datetime64[ns]
+            - 6   order_date      8233 non-null   datetime64[ns]
+            - 7   status_invoice  4921 non-null   object        
+            - 8   paid_at         8233 non-null   datetime64[ns]
+            - 9   total_paid      8233 non-null   int64 
+            ''')
+        elif literaturex == 'Pengecekan NULL VALUE':
+            st.header('Pengecekan NULL VALUE')
+            st.subheader('Pengecekan NULL VALUE di setiap kolom')
+            st.markdown(f''' Dalam proses Pengecekan NULL VALUE dilakukan setelah melakukan Peninjauan Info Dataset,dimana apabila dalam informasi value kolom Non NULL,
+            memiliki nilai yang berbeda dari total value yang dimiliki oleh dataset maka patut dilakukan Pengecekan NULL VALUE,dimana dengan memakai perintah (.isnull dan .sum) maka akan menghasilkan informasi rangkuman NULL VALUE setiap kolom
+
+            Berikut adalah rangkuman NULL VALUE dari Setiap Kolom :
+            - **nama_jobs**\t      memiliki NULL VALUE sejumlah : 0
+            - **type**\t          memiliki NULL VALUE sejumlah : 0
+            - **category**\t      memiliki NULL VALUE sejumlah : 1522
+            - **subcategory**\t  memiliki NULL VALUE sejumlah : 1522
+            - **client_user_id**  memiliki NULL VALUE sejumlah : 39
+            - **register_date**\t  memiliki NULL VALUE sejumlah : 0
+            - **order_date**\t      memiliki NULL VALUE sejumlah : 0
+            - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
+            - **paid_at**\t      memiliki NULL VALUE sejumlah : 0
+            - **total_paid**\t      memiliki NULL VALUE sejumlah : 0
+            ''')
+        elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
+            st.header('Peninjauan Data yang memiliki NULL VALUE')
+            st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
+            st.write("Belum ada penjelasan lebih lanjut.")
+    elif st.session_state.ex_tidak_pressed:
+        st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 
 elif literatur == 'Treatment Terhadap NULL VALUE':
