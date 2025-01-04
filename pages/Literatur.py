@@ -176,7 +176,9 @@ elif literatur == 'Treatment Terhadap Dataset':
         - df['status_invoice'] = df['status_invoice'].fillna('success')
         - df['category'] = df['category'].fillna('Unknown')
         - df['subcategory'] = df['subcategory'].fillna('Unknown')
-        - df['client_user_id'] = df['client_user_id'].fillna('No_one') """)
+        - df['client_user_id'] = df['client_user_id'].fillna('No_one')
+        """)
+        
     elif literaturttreat =='Pengecheckan Outliers':
         st.header('Pengecheckan Outliers')
         st.subheader('')
