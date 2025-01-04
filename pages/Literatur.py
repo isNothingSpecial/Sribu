@@ -56,7 +56,7 @@ elif literatur == 'Explorasi Dataset':
     st.header('Explorasi Dataset')
     st.subheader('Kegiatan Menjelajahi hal dasar yang dimiliki oleh dataset')
 
-    st.markdown("""Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
+    st.markdown(""" Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
     - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
     - Pengecheckan NULL VALUE yang dimiliki oleh dataset 
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
@@ -148,6 +148,8 @@ elif literatur == 'Explorasi Dataset':
                     """)
             elif st.session_state.ex_tidak_pressed:
                 st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
+
+
 elif literatur == 'Treatment Terhadap NULL VALUE':
     st.header('Treatment Terhadap NULL VALUE')
     st.subheader('Cara untuk memperlakukan NULL VALUE')
