@@ -176,12 +176,12 @@ elif literatur == 'Algoritma':
 
         # Tombol Iya dan Tidak
         st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
-        col1, col2 = st.columns(2)
-        with col1:
+        col3, col4 = st.columns(2)
+        with col3:
             if st.button("Iya"):
                 st.session_state.algo_iya_pressed = True
                 st.session_state.algo_tidak_pressed = False
-        with col2:
+        with col4:
             if st.button("Tidak"):
                 st.session_state.algo_iya_pressed = False
                 st.session_state.algo_tidak_pressed = True
