@@ -3,6 +3,7 @@ import pandas as pd
 
 # Load datasets
 df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
+df_missing1 = pd.read_csv('data_missing_1.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
 dfwill = pd.read_csv('data_will_cluster.csv')
 dfcluster = pd.read_csv('data_cluster.csv')
@@ -127,8 +128,21 @@ elif literatur == 'Explorasi Dataset':
             ''')
         elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
             st.header('Peninjauan Data yang memiliki NULL VALUE')
-            st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
-            st.write("Belum ada penjelasan lebih lanjut.")
+            st.subheader('Peninjauan Data yang Memiliki NULL VALUE memiliki informasi apa saja')
+            st.markdown(""" Informasi yang bisa didapat dari dataset yang memiliki NULL antara lainnya adalah : """)
+
+            st.write("1. Status Invoice yang merupakan NULL VALUE sebanyak 1452 baris, dimana sebanyak 1452 data transaksi tersebut memiliki nilai pada kolom Total Paid namun Status Invoicenya tidak jelas :")
+            st.write(df_missing1)
+
+            st.write("2. Status Invoice yang merupakan NULL VALUE sebanyak 1860 baris, dimana sebanyak 1860 data transaksi tersebut memiliki Total Paid = 0,dan Status Invoicenya tidak jelas :")
+            st.write(df_missing3)
+            
+            st.write("3. Kolom Kategori yang merupakan NULL VALUE sebanyak 1452 baris memiliki informasi sebagai berikut :")
+            st.write(df_missing2)
+
+            st.write("4. Kolom Sub Kategori yang merupakan NULL VALUE sebanyak 1860 baris memiliki informasi sebagai berikut :")
+            st.write(df_missing4)
+            
     elif st.session_state.ex_tidak_pressed:
         st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
