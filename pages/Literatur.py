@@ -98,7 +98,7 @@ elif literatur == 'Explorasi Dataset':
             st.markdown(f""" Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info-info yang dimiliki oleh dataset yang akan dianalisis seperti :
             - Nama Kolom
             - Value Kolom (Non NULL)
-            Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
+            - Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
 
             Berikut info yang diperoleh dari Dataset Transaksi Platform SRIBU selama 1 tahun :
             - 0   nama_jobs       8233 non-null   object        
@@ -185,11 +185,51 @@ elif literatur == 'Treatment Terhadap Dataset':
         
     elif literaturttreat =='Pengecheckan Outliers':
         st.header('Pengecheckan Outliers')
-        st.subheader('')
+        st.subheader('Pengecheckan data yang merupakan Outliers dalam kolom numerik dalam dataset')
+        st.markdown(""" Outliers adalah nilai-nilai yang sangat berbeda atau tidak biasa dalam sebuah dataset jika dibandingkan dengan nilai-nilai lainnya. Outliers bisa berupa data yang secara signifikan lebih besar atau lebih kecil dari sebagian besar data lainnya. Mereka sering kali dapat memengaruhi analisis statistik, model prediksi, dan kesimpulan yang diambil dari data.
+
+        Pentingnya melakukan Pengecheckan Outliers dalam dataset memiliki beberapa manfaat,diantaranya :
+        - Meningkatkan Akurasi Terhadap Model
+        - Mencegah Bias dalam Statistik
+        - Memahami Pola Tidak Biasa
+        - Mendukung Pengambilan Keputusan
+
+        Metode-metode dalam Pengecheckan Outliers diantaranya :
+        - Menggunakan Statistik Deskriptif
+        - Menggunakan IQR (Interquartile Range)
+        - Menggunakan Z-Score
+        - Menggunakan Visualisasi
+
+        Dalam Pengecheckan Outliers dalam Analisis kali ini adalah menggunakan Visualisasi berupa Boxplot dimana visualisasinya adalah sebagai berikut :
+        """)
+        st.write('')
     elif literaturttreat =='Pembersihan Outliers':
         st.header('Pembersihan Outliers')
-        st.subheader('')
+        st.subheader('Melakukan Treatment kepada anomali Outliers')
+        st.markdown(f""" Dalam Pembersihan Outliers kali ini adalah menggunakan metode Interquartile Range (IQR),dimana memiliki langkah-langkah diantaranya :
+        - Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas,dengan menggunakan IQR dari kolom total_paid,dimana :
+        **Kuartil Bawah (Q1) adalah nilai dari kolom total_paid dimana 25% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 10000**
+        **Kuartil Atas (Q3) adalah nilai dari kolom total_paid dimana 75% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 638931**
+            
+        Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
+        
+        **IQR = Q3-Q1**
 
+        Setelah mengetahui nilai IQRnya dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut dimana memiliki rumus sebagai berikut :
+        
+        ** - lower_bound = Q1 - 1.5 * IQR**
+        ** - upper_bound = Q3 + 1.5 * IQR**
+
+        Setelah menghitung IQR,batas atas dan batas bawah,lalu step terakhir adalah menyaring total value yang ada dalam kolom total_paid dengan hasil batas atas dan batas bawah dari hasil yang telah dihitung tadi,dimana melalui alur sebagai berikut :
+
+        ** df3_cleaned = df3[(df3['total_paid'] >= lower_bound) & (df3['total_paid'] <= upper_bound)]**
+
+        dimana step tersebut memiliki arti apabila :
+        **Data di kolom total_paid yang lebih besar atau sama dengan lower_bound** dan
+        **Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound**
+
+        Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah **df3_cleaned** .
+        """)
 
 elif literatur == 'Algoritma':
     st.header('Algoritma')
