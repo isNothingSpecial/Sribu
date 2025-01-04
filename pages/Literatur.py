@@ -211,8 +211,8 @@ elif literatur == 'Treatment Terhadap Dataset':
 
         st.markdown(""" Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas, dengan menggunakan IQR dari kolom total_paid, dimana :
         
-        - Kuartil Bawah (Q1) : adalah nilai dari kolom `total_paid` di mana 25% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 10,000  
-        - Kuartil Atas (Q3) : adalah nilai dari kolom `total_paid` di mana 75% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 638,931
+        - Kuartil Bawah (Q1) : adalah nilai dari kolom total_paid di mana 25% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 10,000  
+        - Kuartil Atas (Q3) : adalah nilai dari kolom total_paid di mana 75% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 638,931
         """)
             
         st.markdown("""Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
@@ -221,7 +221,7 @@ elif literatur == 'Treatment Terhadap Dataset':
         """)
 
         st.markdown("""
-        Setelah mengetahui nilai IQRnya, dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom `total_paid` tersebut di mana memiliki rumus sebagai berikut:
+        Setelah mengetahui nilai IQRnya, dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut di mana memiliki rumus sebagai berikut:
 
         - lower_bound = Q1 - 1.5 * IQR
         - upper_bound = Q3 + 1.5 * IQR
@@ -234,8 +234,8 @@ elif literatur == 'Treatment Terhadap Dataset':
 
         st.markdown("""Dimana step tersebut memiliki arti apabila :
         
-        - Data di kolom `total_paid` yang lebih besar atau sama dengan lower_bound dan
-        - Data di kolom `total_paid` yang lebih kecil atau sama dengan upper_bound""")
+        - Data di kolom total_paid yang lebih besar atau sama dengan lower_bound dan
+        - Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound""")
 
         st.write('Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah `df3_cleaned`.')
 
