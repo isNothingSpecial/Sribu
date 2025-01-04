@@ -207,9 +207,10 @@ elif literatur == 'Treatment Terhadap Dataset':
         st.header('Pembersihan Outliers')
         st.subheader('Melakukan Treatment kepada anomali Outliers')
         st.markdown(f""" Dalam Pembersihan Outliers kali ini adalah menggunakan metode Interquartile Range (IQR),dimana memiliki langkah-langkah diantaranya :
-        - Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas,dengan menggunakan IQR dari kolom total_paid,dimana :
-        **- Kuartil Bawah (Q1) adalah nilai dari kolom total_paid dimana 25% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 10000**
-        **- Kuartil Atas (Q3) adalah nilai dari kolom total_paid dimana 75% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 638931**
+        **Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas,dengan menggunakan IQR dari kolom total_paid,dimana :**
+            
+            - Kuartil Bawah (Q1) adalah nilai dari kolom total_paid dimana 25% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 10000
+            - Kuartil Atas (Q3) adalah nilai dari kolom total_paid dimana 75% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 638931
             
         Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
         - IQR = Q3-Q1
