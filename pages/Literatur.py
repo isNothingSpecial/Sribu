@@ -170,8 +170,8 @@ elif literatur == 'Treatment Terhadap Dataset':
         st.subheader('Mengubah nilai-nilai NULL VALUE dari setiap kolom ')
         st.markdown('''Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
         
-        1. Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
-        2. Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
+        - Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
+        - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
         
        ''')
         
@@ -193,15 +193,15 @@ elif literatur == 'Treatment Terhadap Dataset':
         - Mencegah Bias dalam Statistik
         - Memahami Pola Tidak Biasa
         - Mendukung Pengambilan Keputusan
-
-        Metode-metode dalam Pengecheckan Outliers diantaranya :
+        """)
+        st.markdown ("""Metode-metode dalam Pengecheckan Outliers diantaranya :
+        
         - Menggunakan Statistik Deskriptif
         - Menggunakan IQR (Interquartile Range)
         - Menggunakan Z-Score
         - Menggunakan Visualisasi
-
-        Dalam Pengecheckan Outliers dalam Analisis kali ini adalah menggunakan Visualisasi berupa Boxplot dimana visualisasinya adalah sebagai berikut :
         """)
+        st.write('Dalam Pengecheckan Outliers dalam Analisis kali ini adalah menggunakan Visualisasi berupa Boxplot dimana visualisasinya adalah sebagai berikut :')
         st.write('')
     elif literaturttreat =='Pembersihan Outliers':
         st.header('Pembersihan Outliers')
