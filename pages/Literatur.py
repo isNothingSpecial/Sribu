@@ -158,10 +158,33 @@ elif literatur == 'Treatment Terhadap Dataset':
     st.header('Treatment Terhadap Dataset')
     st.subheader('Cara untuk memperlakukan Dataset sebelum analisis')
     st.markdown(""" Berikut adalah treatment-treatment untuk melihat anomali dalam dataset dan penananganannya,diantaranya adalah :
-    1. Imputasi NULL VALUE 
-    2. Pengecheckan Outliers
-    3. Pembersihan Outliers
-    4. """)
+    - Imputasi NULL VALUE 
+    - Pengecheckan Outliers
+    - Pembersihan Outliers
+     """)
+    littreat = ['Imputasi NULL VALUE', 'Pengecheckan Outliers', 'Pembersihan Outliers']
+    literaturttreat = st.selectbox('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', littreat)
+
+        if literaturttreat =='Imputasi NULL VALUE':
+            st.header('Imputasi NULL VALUE')
+            st.subheader('Mengubah nilai-nilai NULL VALUE dari setiap kolom ')
+            st.markdown(""" Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
+            - Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
+            - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
+            """)
+            st.markdown(""" Berikut adalah langkah-langkah untuk melakukan Imputasi NULL VALUE :
+            - df['status_invoice'] = df['status_invoice'].fillna('success')
+            - df['category'] = df['category'].fillna('Unknown')
+            - df['subcategory'] = df['subcategory'].fillna('Unknown')
+            - df['client_user_id'] = df['client_user_id'].fillna('No_one') """)
+        elif literaturttreat =='Pengecheckan Outliers':
+            st.header('Pengecheckan Outliers')
+            st.subheader('')
+        elif literaturttreat =='Pembersihan Outliers':
+            st.header('Pembersihan Outliers')
+            st.subheader('')
+
+
 elif literatur == 'Algoritma':
     st.header('Algoritma')
     st.subheader('RFMC dan K-Means')
