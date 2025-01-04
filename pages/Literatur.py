@@ -7,6 +7,7 @@ df_missing1 = pd.read_csv('data_missing_1.csv')
 df_missing2 = pd.read_csv('data_missing_2.csv')
 df_missing3 = pd.read_csv('data_missing_3.csv')
 df_missing4 = pd.read_csv('data_missing_4.csv')
+df_missing5 = pd.read_csv('data_missing_5.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
 dfwill = pd.read_csv('data_will_cluster.csv')
 dfcluster = pd.read_csv('data_cluster.csv')
@@ -146,7 +147,7 @@ elif literatur == 'Explorasi Dataset':
             st.write("4. Kolom Sub Kategori yang merupakan NULL VALUE sebanyak 1522 baris memiliki informasi sebagai berikut :")
             st.write(df_missing4)
 
-            st.write("5. Client User ID yang merupakan NULL VALUE atau User yang tanpa nama namun tetap memiliki data transaksi sebanyak 39 baris memiliki informasi sebagai berikut :")
+            st.write("5. Client User ID yang merupakan NULL VALUE atau User yang tanpa nama namun memiliki data transaksi sebanyak 39 baris memiliki informasi sebagai berikut :")
             st.write(df_missing5)
             
     elif st.session_state.ex_tidak_pressed:
