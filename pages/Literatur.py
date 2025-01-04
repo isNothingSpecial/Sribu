@@ -212,23 +212,20 @@ elif literatur == 'Treatment Terhadap Dataset':
         **Kuartil Atas (Q3) adalah nilai dari kolom total_paid dimana 75% data berada di bawahnya,dan dalam dataset ini memiliki nilai : 638931**
             
         Sehingga ketika telah mengetahui nilai Kuartil Atas dan Kuartil Bawah,lalu dilanjutkan dengan proses perhitungan IQR dengan menggunakan rumus :
-        
-        **IQR = Q3-Q1**
+        - IQR = Q3-Q1
 
         Setelah mengetahui nilai IQRnya dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut dimana memiliki rumus sebagai berikut :
-        
-        ** - lower_bound = Q1 - 1.5 * IQR**
-        ** - upper_bound = Q3 + 1.5 * IQR**
+        - lower_bound = Q1 - 1.5 * IQR
+        - upper_bound = Q3 + 1.5 * IQR
 
         Setelah menghitung IQR,batas atas dan batas bawah,lalu step terakhir adalah menyaring total value yang ada dalam kolom total_paid dengan hasil batas atas dan batas bawah dari hasil yang telah dihitung tadi,dimana melalui alur sebagai berikut :
+        - df3_cleaned = df3[(df3['total_paid'] >= lower_bound) & (df3['total_paid'] <= upper_bound)]
 
-        ** df3_cleaned = df3[(df3['total_paid'] >= lower_bound) & (df3['total_paid'] <= upper_bound)]**
+        Dimana step tersebut memiliki arti apabila :
+        - Data di kolom total_paid yang lebih besar atau sama dengan lower_bound dan
+        - Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound
 
-        dimana step tersebut memiliki arti apabila :
-        **Data di kolom total_paid yang lebih besar atau sama dengan lower_bound** dan
-        **Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound**
-
-        Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah **df3_cleaned** .
+        Maka Data yang tidak memenuhi kriteria diatas akan dihapus dari dataset,lalu disimpan dalam perintah *df3_cleaned* .
         """)
 
 elif literatur == 'Algoritma':
