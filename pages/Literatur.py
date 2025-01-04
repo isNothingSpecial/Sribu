@@ -60,7 +60,6 @@ elif literatur == 'Explorasi Dataset':
     - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
     - Pengecekan NULL VALUE yang dimiliki oleh dataset 
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
-    - Imputasi Nilai NULL Value
     """)
 
     # Inisialisasi session_state untuk tombol
@@ -91,10 +90,10 @@ elif literatur == 'Explorasi Dataset':
         if literaturex == 'Peninjauan Info Dataset':
             st.header('Peninjauan Tipe Data')
             st.subheader('Melihat Tipe Data dari setiap kolom')
-            st.markdown(f''' Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info-info yang dimiliki oleh dataset yang akan dianalisis seperti :
+            st.markdown(f""" Dalam proses peninjauan tipe data menggunakan perintah (.info) dimana dengan menggunakan perintah tersebut kita bisa mengetahui info-info yang dimiliki oleh dataset yang akan dianalisis seperti :
             - Nama Kolom
             - Value Kolom (Non NULL)
-            - Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
+            Tipe Data dari setiap Kolom yang ada dalam dataset yang akan dianalisis
 
             Berikut info yang diperoleh dari Dataset Transaksi Platform SRIBU selama 1 tahun :
             - 0   nama_jobs       8233 non-null   object        
@@ -107,7 +106,7 @@ elif literatur == 'Explorasi Dataset':
             - 7   status_invoice  4921 non-null   object        
             - 8   paid_at         8233 non-null   datetime64[ns]
             - 9   total_paid      8233 non-null   int64 
-            ''')
+            """)
         elif literaturex == 'Pengecekan NULL VALUE':
             st.header('Pengecekan NULL VALUE')
             st.subheader('Pengecekan NULL VALUE di setiap kolom')
@@ -115,16 +114,16 @@ elif literatur == 'Explorasi Dataset':
             memiliki nilai yang berbeda dari total value yang dimiliki oleh dataset maka patut dilakukan Pengecekan NULL VALUE,dimana dengan memakai perintah (.isnull dan .sum) maka akan menghasilkan informasi rangkuman NULL VALUE setiap kolom
 
             Berikut adalah rangkuman NULL VALUE dari Setiap Kolom :
-            - **nama_jobs**\t      memiliki NULL VALUE sejumlah : 0
-            - **type**\t          memiliki NULL VALUE sejumlah : 0
-            - **category**\t      memiliki NULL VALUE sejumlah : 1522
-            - **subcategory**\t  memiliki NULL VALUE sejumlah : 1522
-            - **client_user_id**  memiliki NULL VALUE sejumlah : 39
-            - **register_date**\t  memiliki NULL VALUE sejumlah : 0
-            - **order_date**\t      memiliki NULL VALUE sejumlah : 0
-            - **status_invoice**  memiliki NULL VALUE sejumlah : 3312
-            - **paid_at**\t      memiliki NULL VALUE sejumlah : 0
-            - **total_paid**\t      memiliki NULL VALUE sejumlah : 0
+            - **nama_jobs**        memiliki NULL VALUE sejumlah : 0
+            - **type**             memiliki NULL VALUE sejumlah : 0
+            - **category**         memiliki NULL VALUE sejumlah : 1522
+            - **subcategory**      memiliki NULL VALUE sejumlah : 1522
+            - **client_user_id**   memiliki NULL VALUE sejumlah : 39
+            - **register_date**    memiliki NULL VALUE sejumlah : 0
+            - **order_date**       memiliki NULL VALUE sejumlah : 0
+            - **status_invoice**   memiliki NULL VALUE sejumlah : 3312
+            - **paid_at**          memiliki NULL VALUE sejumlah : 0
+            - **total_paid**       memiliki NULL VALUE sejumlah : 0
             ''')
         elif literaturex == 'Peninjauan Data yang memiliki NULL VALUE':
             st.header('Peninjauan Data yang memiliki NULL VALUE')
