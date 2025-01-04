@@ -56,38 +56,36 @@ elif literatur == 'Explorasi Dataset':
     st.header('Explorasi Dataset')
     st.subheader('Kegiatan Menjelajahi hal dasar yang dimiliki oleh dataset')
 
-    st.markdown('''Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
+    st.markdown("""Explorasi Dataset adalah kegiatan mendasar dalam proses analisis dimana fungsinya adalah dimana untuk mengetahui hal-hal dasar yang dimiliki oleh dataset dan divisualkan dalam sebuah rangkuman,dimana hal yang sering dilakukan adalah :
     - Peninjauan tipe data setiap kolom dari dataset yang akan dianalisis
     - Pengecheckan NULL VALUE yang dimiliki oleh dataset 
     - Peninjauan Data yang memiliki NULL VALUE dimana saja dan memiliki value apa saja di dalam dataset tersebut
     - Imputasi Nilai NULL Value
     
-    ''')
+    """)
 
     # Inisialisasi session_state untuk tombol
-    if "iya_pressed" not in st.session_state:
-        st.session_state.iya_pressed = False
-    if "tidak_pressed" not in st.session_state:
-        st.session_state.tidak_pressed = False
+    if "ex_iya_pressed" not in st.session_state:
+        st.session_state.ex_iya_pressed = False
+    if "ex_tidak_pressed" not in st.session_state:
+        st.session_state.ex_tidak_pressed = False
     # Tombol Iya dan Tidak
-        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang RFM?")
-        
+        st.write("Apakah Anda ingin penjelasan lebih lanjut tentang Explorasi Dataset?")
         col1, col2 = st.columns(2)
-        
         with col1:
             if st.button("Iya"):
-                st.session_state.iya_pressed = True
-                st.session_state.tidak_pressed = False
+                st.session_state.ex_iya_pressed = True
+                st.session_state.ex_tidak_pressed = False
         with col2:
             if st.button("Tidak"):
-                st.session_state.iya_pressed = False
-                st.session_state.tidak_pressed = True
+                st.session_state.ex_iya_pressed = False
+                st.session_state.ex_tidak_pressed = True
 
         # Logika berdasarkan tombol yang ditekan
-            if st.session_state.iya_pressed:
+            if st.session_state.ex_iya_pressed:
                 st.header("Pilih Penjelasan Explorasi Dataset yang ingin Anda Ketahui")
                 litex = ['Peninjauan Info Dataset', 'Pengecheckan NULL VALUE','Peninjauan Data yang memiliki NULL VALUE']
-                literaturex = st.radio('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', litex)
+                literaturex = st.selectbox('Pilih penjelasan tentang Explorasi yang ingin Anda ketahui:', litex)
 
                 if literaturex == 'Peninjauan Info Dataset':
                     st.header('Peninjauan Tipe Data')
@@ -148,7 +146,7 @@ elif literatur == 'Explorasi Dataset':
                     st.subheader('Peninjauan Data mana yang memiliki NULL VALUE')
                     st.write("""
                     """)
-            elif st.session_state.tidak_pressed:
+            elif st.session_state.ex_tidak_pressed:
                 st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 elif literatur == 'Treatment Terhadap NULL VALUE':
     st.header('Treatment Terhadap NULL VALUE')
