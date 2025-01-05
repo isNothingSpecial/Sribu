@@ -381,19 +381,19 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
     with col5:
         if st.button("Iya"):
             st.session_state.onehot_iya_pressed = True
-            st.session_state.onehot_iya_pressed = False
+            st.session_state.onehot_tidak_pressed = False
     with col6:
         if st.button("Tidak"):
             st.session_state.onehot_iya_pressed = False
-            st.session_state.onehot_iya_pressed = True
+            st.session_state.onehot_tidak_pressed = True
 
-        # Logika berdasarkan tombol yang ditekan
-        if st.session_state.onehot_iya_pressed:
-            st.header("Berikut Adalah Dataset yang Akan Diolah yang Telah di Onehot Encoder")
-            st.write(onehot_data)
+    # Logika berdasarkan tombol yang ditekan
+    if st.session_state.onehot_iya_pressed:
+        st.header("Berikut Adalah Dataset yang Akan Diolah yang Telah di Onehot Encoder")
+        st.write(onehot_data)
             
-        elif st.session_state.onehot_iya_pressed:
-            st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
+    elif st.session_state.onehot_tidak_pressed:
+        st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 elif literatur == 'RFM Data':
     st.header('Data Yang Telah Diolah')
