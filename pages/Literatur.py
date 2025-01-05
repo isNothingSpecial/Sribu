@@ -210,7 +210,7 @@ elif literatur == 'Treatment Terhadap Dataset':
         st.write('Dalam Pembersihan Outliers kali ini adalah menggunakan metode Interquartile Range (IQR), dimana memiliki langkah-langkah di antaranya:')
 
         st.markdown(""" Menghitung Batas Atas dan Batas Bawah melalui Kuartil bawah dan kuartil atas, dengan menggunakan IQR dari kolom total_paid, dimana :
-        
+        -
         - Kuartil Bawah (Q1) : adalah nilai dari kolom total_paid di mana 25% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 10,000  
         - Kuartil Atas (Q3) : adalah nilai dari kolom total_paid di mana 75% data berada di bawahnya, dan dalam dataset ini memiliki nilai : 638,931
         """)
@@ -222,6 +222,7 @@ elif literatur == 'Treatment Terhadap Dataset':
 
         st.markdown("""Setelah mengetahui nilai IQRnya, dilanjutkan lagi dengan menghitung batas atas dan batas bawah dari nilai dalam kolom total_paid tersebut di mana memiliki rumus sebagai berikut:
 
+        - Rumus :
         - lower_bound = Q1 - 1.5 * IQR
         - upper_bound = Q3 + 1.5 * IQR
         """)
@@ -232,7 +233,8 @@ elif literatur == 'Treatment Terhadap Dataset':
         """)
 
         st.markdown("""Dimana step tersebut memiliki arti apabila :
-        
+
+        -
         - Data di kolom total_paid yang lebih besar atau sama dengan lower_bound dan
         - Data di kolom total_paid yang lebih kecil atau sama dengan upper_bound""")
 
@@ -325,6 +327,45 @@ elif literatur == 'Algoritma':
         with col2:
             st.markdown("**Kekurangan K-Means**")
             st.markdown("- Harus menentukan jumlah **k** di awal.\n- Sensitif terhadap inisialisasi dan outlier.")
+
+elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
+    st.header('Pemisahan Kolom Category menjadi Kolom-Kolom Kategori Biner')
+    st.subheader('Proses Penjabaran Kolom Category sebelum melakukan Pengolahan Data dengan RFM dan K-Means')
+    st.write(''' One-Hot Encoding adalah teknik transformasi data yang digunakan untuk mengubah data kategorikal (data non-numerik) menjadi format numerik yang dapat digunakan dalam algoritma machine learning.
+    Teknik ini bekerja dengan membuat kolom baru untuk setiap kategori unik dalam kolom aslinya dan mengisi kolom baru tersebut dengan nilai biner (0 atau 1), tergantung pada apakah kategori itu muncul di baris tertentu
+    ''')
+
+    # Data contoh
+    data = {'Username': ['Alice', 'Bob', 'Charlie'],
+        'Category Ordered': ['Desain Grafis & Branding','Penulisan & Penerjemahan','Web & Pemrograman'],
+        'Money': ['100000', '1000000', '350000']}
+    df_cat = pd.DataFrame(data)
+
+    st.write('''Contoh Alur Onehot Encoder : 
+    Dataset Awal
+    ''')
+    st.write(df_cat)
+    st.write(''' Dalam Dataset Awal Terlihat Dimana dalam kolom Category Ordered memiliki 3 kategori yang diorder oleh pelanggan yakni :
+
+    -
+    - Alice melakukan order dengan Category Orderan Desain Grafis & Branding dengan harga 100.000
+    - Bob melakukan order dengan Category Orderan Penulisan & Penerjemahan dengan harga 1.000.000
+    - Charlie melakukan order dengan Category Orderan Web & Pemrograman dengan harga 350.000
+    ''')
+    st.write(''' Dengan melakukan Onehot Encoder dengan perintah :
+
+    - df4 = pd.get_dummies(df3_cleaned, columns=['category'])
+
+    Dimana menghasilkan Dataset yang memiliki kolom Category Ordered yang nantinya terpecah sesuai dengan ada berapa kategori yang ada dalam kolom Category Ordered,dan menghasilkan menjadi seperti ini :
+    ''')
+    # Data contoh
+    Onehot = {'Username': ['Alice', 'Bob', 'Charlie'],
+        'Money': ['100000', '1000000', '350000'],
+        'Category Ordered_Desain Grafis & Branding': [1,0,0],
+        'Category Ordered_Penulisan & Penerjemahan': [0,1,0],
+        'Category Ordered_Web & Pemrograman': [0,0,1]}
+    df_Onehot = pd.DataFrame(Onehot)
+    st.write(df_Onehot)
 
 elif literatur == 'RFM Data':
     st.header('Data Yang Telah Diolah')
