@@ -475,7 +475,8 @@ elif literatur == 'Clustering':
             """)
             
         st.markdown("""Kapan Menggunakan MinMaxScaler :
-        
+
+        _
         - Saat ingin menjaga rentang data dalam [0, 1] untuk memastikan kompatibilitas dengan model tertentu.
         - Jika data tidak memiliki outlier ekstrem.
         - Saat distribusi data sudah sesuai dengan kebutuhan analisis dan tidak perlu diubah.
