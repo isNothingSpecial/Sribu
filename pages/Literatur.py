@@ -8,6 +8,7 @@ df_missing2 = pd.read_csv('data_missing_2.csv')
 df_missing3 = pd.read_csv('data_missing_3.csv')
 df_missing4 = pd.read_csv('data_missing_4.csv')
 df_missing5 = pd.read_csv('data_missing_5.csv')
+onehot_data = pd.read_csv('data_onehot.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
 dfwill = pd.read_csv('data_will_cluster.csv')
 dfcluster = pd.read_csv('data_cluster.csv')
@@ -169,14 +170,16 @@ elif literatur == 'Treatment Terhadap Dataset':
         st.header('Imputasi NULL VALUE')
         st.subheader('Mengubah nilai-nilai NULL VALUE dari setiap kolom ')
         st.markdown('''Dimana tujuan dari mengubah nilai-nilai NULL VALUE adalah :
-        
+
+        _
         - Agar tidak menjadi anomali ketika melakukan proses RFM ataupun Clustering
         - Agar terlihat jelas ketika akan melakukan visualisasi dan distribusi nilai dari setiap kolom
         
        ''')
         
         st.markdown(f"""Berikut adalah langkah-langkah untuk melakukan Imputasi NULL VALUE :
-        
+
+        _
         - df['status_invoice'] = df['status_invoice'].fillna('success')
         - df['category'] = df['category'].fillna('Unknown')
         - df['subcategory'] = df['subcategory'].fillna('Unknown')
@@ -365,6 +368,32 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
         'Category Ordered_Web & Pemrograman': [0,0,1]}
     df_Onehot = pd.DataFrame(Onehot)
     st.write(df_Onehot)
+
+        # Inisialisasi session_state untuk tombol
+    if "onehot_iya_pressed" not in st.session_state:
+        st.session_state.onehot_iya_pressed = False
+    if "onehot_tidak_pressed" not in st.session_state:
+        st.session_state.onehot_tidak_pressed = False
+
+        # Tombol Iya dan Tidak
+    st.write("Apakah Anda ingin melihat Dataset yang akan dianalisa yang telah di Onehot")
+    col5, col6 = st.columns(2)
+        with col5:
+            if st.button("Iya"):
+                st.session_state.onehot_iya_pressed = True
+                st.session_state.onehot_iya_pressed = False
+        with col6:
+            if st.button("Tidak"):
+                st.session_state.onehot_iya_pressed = False
+                st.session_state.onehot_iya_pressed = True
+
+        # Logika berdasarkan tombol yang ditekan
+        if st.session_state.onehot_iya_pressed:
+            st.header("Berikut Adalah Dataset yang Akan Diolah yang Telah di Onehot Encoder")
+            st.write(onehot_data)
+            
+        elif st.session_state.onehot_iya_pressed:
+            st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 elif literatur == 'RFM Data':
     st.header('Data Yang Telah Diolah')
