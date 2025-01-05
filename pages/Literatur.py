@@ -389,7 +389,7 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
 
     # Logika berdasarkan tombol yang ditekan
     if st.session_state.onehot_iya_pressed:
-        st.header("Berikut Adalah Dataset yang Akan Diolah yang Telah di Onehot Encoder")
+        st.write("Berikut Adalah Dataset yang Akan Diolah yang Telah di Onehot Encoder")
         st.write(onehot_data)
             
     elif st.session_state.onehot_tidak_pressed:
