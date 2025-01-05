@@ -425,13 +425,82 @@ elif literatur == 'RFM Data':
     Berikut adalah dataset yang telah diolah dengan metode RFM dan telah dibersihkan dari outliers :
     """)
     st.write(dfwill)
-    st.markdown("""
-    Dataset yang telah diolah menggunakan metode RFM dan telah melakukan proses clustering dengan metode K-Means,dari data diatas menghasilkan persebaran cluster sebanyak 4 cluster,dengan persebaran anggota seperti berikut :
-    - Cluster 0 = 1069 anggota
-    - Cluster 1 = 770 anggota
-    - Cluster 2 = 334 anggota
-    - Cluster 3 = 375 anggota
 
-    Berikut adalah dataset final yang telah diolah dengan metode RFM dan pengclusteran dengan algoritma K-Means :
+elif literatur == 'Clustering':
+    st.header('Proses Clustering')
+    st.subheader('Proses terbentuknya hasil akhir yakni Clustering dengan menggunakan K-Means')
+    st.markdown(""" Proses Clustering adalah teknik unsupervised learning yang bertujuan untuk mengelompokkan data ke dalam beberapa kelompok atau cluster berdasarkan kesamaan fitur.
+    Dalam clustering, data dalam satu kelompok akan lebih mirip satu sama lain dibandingkan dengan data dari kelompok lain. Clustering sering digunakan untuk segmentasi pelanggan, analisis pola, atau penemuan struktur tersembunyi dalam dataset.
+    
+    Dalam Proses Clustering untuk project Clustering pelanggan melalui Data Transaksi Sribu ini menggunakan algoritma K-Means,dimana telah dijelaskan pada tab Algoritma,dan disini lebih ke penjelasan step by stepnya,dimana :
+    
+    - Setelah melakukan RFM dan pembersihan Outliers,selanjutnya aalah melakukan Scalling dimana dalam Scalling kali ini adalah untuk menyamaratakan nilai dari setiap kolom menjadi 0-1 sehingga dalam melakukan modelling tidak menemukan nilai yang terlampau jauh selisih antara nilai kolom 1 dengan yang lainnya
+    - Setelah Scalling adalah melakukan evaluasi guna menentukan cluster mana yang paling optimal sebelum menentukan nilai cluster yang akan digunakan
+    - Penentuan Nilai Cluster dengan menggunakan nilai k yang ditentukan dengan Curva WCSS sebelumnya
+    - Visualisasi Persebaran Nilai Cluster
+    - Evaluasi dengan menggunakan Silhouette Score
     """)
-    st.write(dfcluster)
+    litclus = ['Scalling', 'Evaluasi WCSS', 'Inisialisasi Nilai K', 'Visualisasi Persebaran Nilai Cluster','Evaluasi Menggunakan Nilai Silhouette Score']
+    literaturclus = st.selectbox('Pilih Step Clustering yang ingin diketahui :', litclus)
+
+    if literaturclus == 'Scalling':
+        st.header('Scalling')
+        st.subheader('Skala Ulang')
+        st.write("""
+        Scaling atau skala ulang data adalah proses transformasi nilai-nilai fitur dalam dataset agar berada pada rentang yang sama. 
+        Hal ini penting terutama dalam algoritma seperti K-Means, di mana perhitungan jarak (misalnya Euclidean distance) sangat dipengaruhi oleh perbedaan skala antar fitur.
+        Jika satu fitur memiliki rentang nilai yang jauh lebih besar dari fitur lain, hasil clustering dapat bias.
+
+        Dimana dalam Proses Analisis kali ini,adalah dengan metode Scalling menggunakan MinMaxScaller,dimana Scalling menggunakan MinMaxScaller adalah 
+        MinMaxScaler adalah teknik scaling yang mengubah nilai data ke dalam rentang tertentu, biasanya antara 0 dan 1.
+        Metode ini bekerja dengan cara meregangkan atau meremas data berdasarkan nilai minimum dan maksimum dalam setiap fitur.
+
+        berikut adalah kelebihan dan kekurangan dalam penggunaan MinMaxScaller
+        """)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Kelebihan MinMaxScaller")
+            st.markdown("""
+            - Memiliki rentang nilai yang Konsisten
+            - Tidak Memengaruhi Distribusi
+            - Mudah Diterapkan
+            - Ideal untuk Algoritma Berbasis Jarak
+            """)
+        with col2:
+            st.subheader("Kelemahan MinMaxScaller")
+            st.markdown("""
+            - Sensitif terhadap Outlier
+            - Bergantung pada Rentang Data
+            """)
+            
+        st.markdown(""" Kapan Menggunakan MinMaxScaler
+        - Saat ingin menjaga rentang data dalam [0, 1] untuk memastikan kompatibilitas dengan model tertentu.
+        - Jika data tidak memiliki outlier ekstrem.
+        - Saat distribusi data sudah sesuai dengan kebutuhan analisis dan tidak perlu diubah.
+        - Ketika menggunakan algoritma seperti K-Means, KNN, atau Neural Networks yang performanya sangat dipengaruhi oleh skala fitur.
+        """)
+        
+    elif literaturclus == 'Evaluasi WCSS':
+        st.header('Evaluasi WCSS')
+        st.subheader('Evaluasi Menggunakan metode WCSS ( Within-Cluster Sum of Squares)')
+        st.write("""
+        """)
+    elif literaturclus == 'Inisialisasi Nilai K':
+        st.header('Inisialisasi Nilai K')
+        st.subheader('Penentuan Berapa Jumlah Cluster')
+        st.write("""
+        """)
+    elif literaturclus == 'Visualisasi Persebaran Nilai Cluster':
+        st.header('Visualisasi')
+        st.subheader('Visualisasi Persebaran Nilai Cluster')
+        st.markdown("""
+        Dataset yang telah diolah menggunakan metode RFM dan telah melakukan proses clustering dengan metode K-Means,dari data diatas menghasilkan persebaran cluster sebanyak 4 cluster,dengan persebaran anggota seperti berikut :
+        - Cluster 0 = 1069 anggota
+        - Cluster 1 = 770 anggota
+        - Cluster 2 = 334 anggota
+        - Cluster 3 = 375 anggota
+
+        Berikut adalah dataset final yang telah diolah dengan metode RFM dan pengclusteran dengan algoritma K-Means :
+        """)
+        st.write(dfcluster)
