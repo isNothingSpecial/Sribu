@@ -345,18 +345,18 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
     Dataset Awal
     ''')
     st.write(df_cat)
-    st.markdown(f''' Dalam Dataset Awal Terlihat Dimana dalam kolom Category Ordered memiliki 3 kategori yang diorder oleh pelanggan yakni :
+    st.markdown(""" Dalam Dataset Awal Terlihat Dimana dalam kolom Category Ordered memiliki 3 kategori yang diorder oleh pelanggan yakni :
 
     - Alice melakukan order dengan Category Orderan Desain Grafis & Branding dengan harga 100.000
     - Bob melakukan order dengan Category Orderan Penulisan & Penerjemahan dengan harga 1.000.000
     - Charlie melakukan order dengan Category Orderan Web & Pemrograman dengan harga 350.000
-    ''')
-    st.markdown(f''' Dengan melakukan Onehot Encoder dengan perintah :
+    """)
+    st.markdown(""" Dengan melakukan Onehot Encoder dengan perintah :
 
     - df4 = pd.get_dummies(df3_cleaned, columns=['category'])
 
     Dimana menghasilkan Dataset yang memiliki kolom Category Ordered yang nantinya terpecah sesuai dengan ada berapa kategori yang ada dalam kolom Category Ordered,dan menghasilkan menjadi seperti ini :
-    ''')
+    """)
     # Data contoh
     Onehot = {'Username': ['Alice', 'Bob', 'Charlie'],
         'Money': ['100000', '1000000', '350000'],
