@@ -378,14 +378,14 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
         # Tombol Iya dan Tidak
     st.write("Apakah Anda ingin melihat Dataset yang akan dianalisa yang telah di Onehot")
     col5, col6 = st.columns(2)
-        with col5:
-            if st.button("Iya"):
-                st.session_state.onehot_iya_pressed = True
-                st.session_state.onehot_iya_pressed = False
-        with col6:
-            if st.button("Tidak"):
-                st.session_state.onehot_iya_pressed = False
-                st.session_state.onehot_iya_pressed = True
+    with col5:
+        if st.button("Iya"):
+            st.session_state.onehot_iya_pressed = True
+            st.session_state.onehot_iya_pressed = False
+    with col6:
+        if st.button("Tidak"):
+            st.session_state.onehot_iya_pressed = False
+            st.session_state.onehot_iya_pressed = True
 
         # Logika berdasarkan tombol yang ditekan
         if st.session_state.onehot_iya_pressed:
