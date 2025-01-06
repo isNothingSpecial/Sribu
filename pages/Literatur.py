@@ -255,12 +255,11 @@ elif literatur == 'Crosscheck and Deleting Anomali':
     Dimana dalam dataset ini memiliki beberapa data yang termasuk anomali,dan data yang tidak diperlukan dimana diantaranya adalah :
     
     - Penghapusan Data yang memiliki total_paid 0
-        -Mengapa dihapus,karena dalam proses RFM,dimana akan menghitung akumulasi dari Frequentcy yaitu Seberapa sering pelanggan melakukan transaksi dan Monetary,atau total uang yang sudah di keluarkan selama bertransaksi menggunakan platform Sribu,sehingga,agar murni hanya pelanggan yang memiliki total_paid yang jelas.
+        - Mengapa dihapus,karena dalam proses RFM,dimana akan menghitung akumulasi dari Frequentcy yaitu Seberapa sering pelanggan melakukan transaksi dan Monetary,atau total uang yang sudah di keluarkan selama bertransaksi menggunakan platform Sribu,sehingga,agar murni hanya pelanggan yang memiliki total_paid yang jelas.
     - Penghapusan Data dimana pada kolom client_user_id dimana diawalnya tanpa nama,dan diimputasi dengan kata-kata 'No_one'.
-        -Mengapa dihapus,karena apabila dipertahankan akan terjadi rancu dimana user tersebut memiliki transaksi,akan tetapi tanpa nama,sehingga agar clusteringnya agar murni hanya dalam analisis ini,hanya data yang bersih tidak ada kerancuan dalam proses analisisnya.
+        - Mengapa dihapus,karena apabila dipertahankan akan terjadi rancu dimana user tersebut memiliki transaksi,akan tetapi tanpa nama,sehingga agar clusteringnya agar murni hanya dalam analisis ini,hanya data yang bersih tidak ada kerancuan dalam proses analisisnya.
     - Penghapusan Data pada kolom Type dengan nama 'deposit'
-        - Mengapa dihapus,dimana setelah melakukan crosscheck ulang dengan pemilik data,yakni Sribu mendapatkan jawaban dimana data pada kolom Type dengan nama 'deposit',memiliki definisi Client mentransfer sejumlah uang dan uang tersebut menjadi deposit untuk membayar jasa yg ada di platform. Karena mentransfer sejumlah uang makanya ada dokumen invoices untuk pencatatan finance
-        Sehingga kolom Type dengan nama 'deposit',bukan merupakan sebuah data transaksi tapi hanya sekedar transfer uang dan dicatat ke dalam pembukuan keuangan,sehingga 'deposit' memiliki pencatatan invoice.
+        - Mengapa dihapus,dimana setelah melakukan crosscheck ulang dengan pemilik data,yakni Sribu mendapatkan jawaban dimana data pada kolom Type dengan nama 'deposit',memiliki definisi Client mentransfer sejumlah uang dan uang tersebut menjadi deposit untuk membayar jasa yg ada di platform. Karena mentransfer sejumlah uang makanya ada dokumen invoices untuk pencatatan finance, Sehingga kolom Type dengan nama 'deposit',bukan merupakan sebuah data transaksi tapi hanya sekedar transfer uang dan dicatat ke dalam pembukuan keuangan,sehingga 'deposit' memiliki pencatatan invoice.
     """)
     
 
