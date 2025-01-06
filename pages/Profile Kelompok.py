@@ -10,7 +10,7 @@ st.markdown(
 )
 
 # Membuat tiga kolom
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.subheader("> Bagus Rahma AC")
@@ -22,10 +22,6 @@ with col2:
 
 with col3:
     st.subheader("> Annisa Firdaus Nst")
-    st.write("Anggota Kelompok 1")
-
-with col4:
-    st.subheader("> Ismi Nurhadiyanti")
     st.write("Anggota Kelompok 1")
 
 st.subheader("Supported By :")
