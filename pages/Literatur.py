@@ -253,6 +253,7 @@ elif literatur == 'Crosscheck and Deleting Anomali':
     """)
     st.markdown("""
     Dimana dalam dataset ini memiliki beberapa data yang termasuk anomali,dan data yang tidak diperlukan dimana diantaranya adalah :
+    
     - Penghapusan Data yang memiliki total_paid 0
         -Mengapa dihapus,karena dalam proses RFM,dimana akan menghitung akumulasi dari Frequentcy yaitu Seberapa sering pelanggan melakukan transaksi dan Monetary,atau total uang yang sudah di keluarkan selama bertransaksi menggunakan platform Sribu,sehingga,agar murni hanya pelanggan yang memiliki total_paid yang jelas.
     - Penghapusan Data dimana pada kolom client_user_id dimana diawalnya tanpa nama,dan diimputasi dengan kata-kata 'No_one'.
