@@ -486,12 +486,20 @@ elif literatur == 'Clustering':
     elif literaturclus == 'Evaluasi WCSS':
         st.header('Evaluasi WCSS')
         st.subheader('Evaluasi Menggunakan metode WCSS ( Within-Cluster Sum of Squares)')
-        st.write("""
+        st.write("""WCSS adalah singkatan dari Within-Cluster Sum of Squares, yaitu metrik yang digunakan dalam clustering untuk mengevaluasi seberapa baik data telah dikelompokkan ke dalam cluster. WCSS mengukur jumlah kuadrat jarak antara setiap titik data dalam cluster dengan centroidnya.
         """)
     elif literaturclus == 'Inisialisasi Nilai K':
         st.header('Inisialisasi Nilai K')
         st.subheader('Penentuan Berapa Jumlah Cluster')
-        st.write("""
+        st.write("""Setelah melakukan evaluasi menggunakan WCSS proses selanjutnya adalah memasukkan nilai cluster yang sudah ditampilkan dengan menggunakan Curva WCSS selanjutnya adalah memasukkan nilai k yang sudah ditentukan.
+        Dimana dalam analisis kali ini menggunakan nilai cluster 4,dan memanggil algoritma yang akan digunakan,dimana menggunakan perintah sebagai berikut :
+        
+        # Jumlah cluster optimal (dari metode Elbow) lalu dijalankan menggunakan algoritma K-Means
+        - n_clusters = 4
+        - kmeans = KMeans(n_clusters=n_clusters,init='k-means++', random_state=42)
+
+        Setelah melakukan pemanggilan selanjutnya adalah melakukan clustering dan ketika sudah diolah,dimasukkan kedalam kolom cluster dengan membuat kolom baru,yakni Kolom Cluster,dengan menggunakan fungsi 
+        - df5_cleaned['Cluster'] = kmeans.fit_predict(rfm_scaled)
         """)
     elif literaturclus == 'Visualisasi Persebaran Nilai Cluster':
         st.header('Visualisasi')
