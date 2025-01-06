@@ -33,7 +33,7 @@ Dimana pada halaman ini berisi tentang penjelasan tentang setiap Proses yang dil
 - Clustering Data
 
 ''')
-lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Treatment Terhadap Dataset','Crosscheck and Deleting Anomali','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFM Data','Clustering']
+lit = [' ','Dataset Awal', 'Explorasi Dataset' ,'Treatment Terhadap Dataset','Crosscheck and Deleting Anomali','Algoritma','Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner', 'RFMC Data','Clustering']
 literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', lit)
 
 # Logika berdasarkan literatur
@@ -415,7 +415,7 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
     elif st.session_state.onehot_tidak_pressed:
         st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
-elif literatur == 'RFM Data':
+elif literatur == 'RFMC Data':
     st.header('Data Yang Telah Diolah Melalui Proses RFMC')
     st.subheader('Dataset yang telah di Scalling dan di Preprocessing untuk di RFM')
     st.markdown("""
