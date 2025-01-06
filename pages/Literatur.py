@@ -417,13 +417,12 @@ elif literatur == 'RFM Data':
     Berikut adalah dataset yang telah diolah dengan metode RFM :
     """)
     st.write(dfproc)
-    st.markdown("""
-    Dataset yang telah diolah menggunakan metode RFM dan dibersihkan dari outliers dan akan dimasukkan ke dalam proses clustering,memiliki perbedaan dimana jumlah data total telah berkurang dikarenakan proses pembersihan outliers :
-    - Jumlah data sebelum membersihkan outliers: 2942
-    - Jumlah data setelah membersihkan outliers: 2548
-
-    Berikut adalah dataset yang telah diolah dengan metode RFM dan telah dibersihkan dari outliers :
-    """)
+    st.write("Dataset yang telah diolah menggunakan metode RFM sebelum melakukan Clustering,dimasukkan dahulu ke dalam proses pengecheckan cluster dengan Boxplot,dimana memiliki tampilan sebagai berikut  :")
+    st.image('IQR 3.png')
+    st.write('Dalam BoxPlot diatas terlihat jelas dimana pada kolom Monetary terdapat banyak sekali outliers dimana itu nantinya sangat mempengaruhi hasil Clustering apabila tidak dihapus,dan jumlah data sebelum membersihkan outliers adalah sebanyak 2942 data')
+    st.image('IQR 4.png')
+    st.write('Setelah melakukan pembersihan Outliers dengan menggunakan IQR,dalam BoxPlot diatas terlihat jelas perbedaannya dimana pada kolom Monetary yang tadinya memiliki rentang yang sangat jauh hingga mencapai kisaran 7M,setelah melakukan pembersihan Outliers hingga tersisa di Monetary kisaran 2.5M keatas,perbedaan se signifikan itu juga nantinya akan memberikan pengaruh yang signifikan pula pada proses clustering nantinya,dan jumlah data setelah membersihkan outliers adalah sebanyak 2548 data')
+    st.write('Berikut adalah dataset yang telah diolah dengan metode RFM dan telah dibersihkan dari outliers :')
     st.write(dfwill)
 
 elif literatur == 'Clustering':
@@ -515,6 +514,8 @@ elif literatur == 'Clustering':
         - Cluster 2 = 334 anggota
         - Cluster 3 = 375 anggota
 
-        Berikut adalah dataset final yang telah diolah dengan metode RFM dan pengclusteran dengan algoritma K-Means :
+        Berikut adalah dataset final dan Proporsi Distribusi Nilai setiap anggota cluster dari dataset yang telah diolah dengan metode RFM dan pengclusteran dengan algoritma K-Means :
         """)
         st.write(dfcluster)
+        st.write('Distribusi Anggota Setiap Cluster')
+        st.image('Cluster.png')
