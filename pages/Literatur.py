@@ -488,6 +488,7 @@ elif literatur == 'Clustering':
         st.subheader('Evaluasi Menggunakan metode WCSS ( Within-Cluster Sum of Squares)')
         st.write("""WCSS adalah singkatan dari Within-Cluster Sum of Squares, yaitu metrik yang digunakan dalam clustering untuk mengevaluasi seberapa baik data telah dikelompokkan ke dalam cluster. WCSS mengukur jumlah kuadrat jarak antara setiap titik data dalam cluster dengan centroidnya.
         """)
+        st.image('WCSS.png')
     elif literaturclus == 'Inisialisasi Nilai K':
         st.header('Inisialisasi Nilai K')
         st.subheader('Penentuan Berapa Jumlah Cluster')
