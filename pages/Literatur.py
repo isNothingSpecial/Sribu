@@ -416,10 +416,41 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
         st.warning("Baiklah :), silakan lanjutkan aktivitas Anda!")
 
 elif literatur == 'RFM Data':
-    st.header('Data Yang Telah Diolah')
-    st.subheader('Proses Terbentuknya Hasil Akhir Pengolahan Data dengan RFM dan K-Means')
+    st.header('Data Yang Telah Diolah Melalui Proses RFMC')
+    st.subheader('Dataset yang telah di Scalling dan di Preprocessing untuk di RFM')
     st.markdown("""
-    Berikut adalah Dataset yang telah diolah menggunakan metode RFM dan menambahkan hasil onehot kolom Category memiliki kolom berikut:
+    Pada tahap RFM adalah tahapan dimana data masuk kedalam pengolahan untuk mengetahui nilai :
+    - Recency
+    - Frequency
+    - Monetary
+    """)
+    st.markdown(""" 
+    Dimana proses tersebut dilakukan dengan cara :
+
+    - Memasukkan referensi tanggal yang nantinya digunakan sebagai pengurang dari tanggal kapan pelanggan terakhir melakukan transaksi.
+        - Berikut adalah referensi datanya yang diambil dari MAX dari kolom paid_at sehingga mendapatkan hasil yakni tanggal 2 Desember 2024,Pukul 07.00
+            - reference_date = datetime(2024, 12, 2, 7, 0, 0) 
+            
+    - Setelah Memasukkan referensi tanggal,lamgkah selanjutnya adalah melakukan pencarian recency dengan cara 
+        - dataset yang akan diproses di groupping berdasarkan client user id 
+        - Melakukan kalkulasi yakni :referensi tanggal - kapan pelanggan tersebut terakhir melakukan transaksi
+        - Berikut adalah rumusnya :
+            - recency = df4.groupby('client_user_id')['paid_at'].max().reset_index()
+            - recency['Recency'] = (reference_date - recency['paid_at']).dt.days
+            
+    - Selanjutnya adalah melakukan perhitungan untuk mengetahui **Intensitas Pelanggan** atau **Frequency** yakni dengan cara melakukan rangkuman data groupping berdasar kolom 'client_user_id' lalu outputnya adalah angka seberapa banyak nama pelanggan tersebut keluar
+        - Berikut adalah langkah-langkahnya :
+            - frequency = df4.groupby('client_user_id').size().reset_index(name='Frequency')
+    - Monetary atau Total pembayaran per pelanggan,yakni adalah dengan mengakumulasi data pada kolom total_paid dari seiap nilai total_paid yang keluar pada client user id tersebut
+        - Berikut adalah langkah-langkahnya :
+            - monetary = df4.groupby('client_user_id')['total_paid'].sum().reset_index()
+            - monetary.rename(columns={'total_paid': 'Monetary'}, inplace=True)
+    - Proses terakhir adalah melakukan pengelompokkan kategori berdasarkan kolom Categpry,dimana dengan tujuan pelanggan dengan Client User ID ini pernah melakukan order dengan kategori apa saja selama menggunakan Platform Sribu
+        - Berikut adalah lanngkah-langkahnya :
+            - category = df4.groupby('client_user_id')[columns_convert_booltoint].max().reset_index()
+    """)
+    st.markdown("""
+    Setelah melakukan kalkulasi setiap tahap,yakni RFMC,Berikut adalah Dataset yang telah diolah menggunakan metode RFMC memiliki kolom berikut:
     - Client User Id
     - Paid At
     - Recency
@@ -434,7 +465,7 @@ elif literatur == 'RFM Data':
     - Category Video, Fotografi & Audio
     - Category Web & Pemrograman'
 
-    Berikut adalah dataset yang telah diolah dengan metode RFM :
+    dan Berikut adalah output dataset yang telah diolah dengan metode RFMC :
     """)
     st.write(dfproc)
     st.write("Dataset yang telah diolah menggunakan metode RFM sebelum melakukan Clustering,dimasukkan dahulu ke dalam proses pengecheckan cluster dengan Boxplot,dimana memiliki tampilan sebagai berikut  :")
