@@ -432,9 +432,9 @@ elif literatur == 'RFM Data':
             - reference_date = datetime(2024, 12, 2, 7, 0, 0) 
             
     - Setelah Memasukkan referensi tanggal,lamgkah selanjutnya adalah melakukan pencarian recency dengan cara 
-        - dataset yang akan diproses di groupping berdasarkan client user id 
-        - Melakukan kalkulasi yakni :referensi tanggal - kapan pelanggan tersebut terakhir melakukan transaksi
-        - Berikut adalah rumusnya :
+        - Dataset yang akan diproses di groupping berdasarkan client user id 
+        - Melakukan kalkulasi dengan cara referensi tanggal dikurangi dengan kapan pelanggan tersebut terakhir melakukan transaksi
+        - Berikut adalah langkah-langkahnya :
             - recency = df4.groupby('client_user_id')['paid_at'].max().reset_index()
             - recency['Recency'] = (reference_date - recency['paid_at']).dt.days
             
