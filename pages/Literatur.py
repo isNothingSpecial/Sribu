@@ -539,3 +539,30 @@ elif literatur == 'Clustering':
         st.write(dfcluster)
         st.write('Distribusi Anggota Setiap Cluster')
         st.image('Cluster.png')
+    elif literaturclus == 'Evaluasi Menggunakan Nilai Silhouette Score':
+        st.header('Evaluasi Silhouettem Score')
+        st.subheader('Evaluasi Final setelah clustering')
+        st.write("Evaluasi menggunakan Silhouette Score adalah Metrik evaluasi untuk mengukur kualitas clustering. Nilai ini menunjukkan seberapa baik data telah dikelompokkan dengan mempertimbangkan kedekatan antar anggota dalam satu cluster (cohesion) dan perbedaan antar cluster (separation).")
+
+        col3, col4 = st.columns(2)
+        with col3:
+            st.subheader("Kelebihan Silhouette Score")
+            st.markdown("""
+            - **Interpretasi Jelas** : Nilai Silhouette Score memberikan indikasi langsung tentang seberapa baik cluster terbentuk.
+            - **Metrik Komprehensif** : Menggabungkan aspek internal (kedekatan dalam cluster) dan eksternal (perbedaan antar cluster).
+            - **Algoritma Agnostik** : Cocok digunakan untuk mengevaluasi berbagai algoritma clustering.
+            """)
+        with col4:
+            st.subheader("Kelemahan Silhouette Score")
+            st.markdown("""
+            - **Sensitif pada Skala Data** : Hasil dapat bias jika data tidak diskalakan dengan benar.
+            - **Tidak Efektif untuk Cluster Non-Linear** : Tidak ideal untuk bentuk cluster kompleks, seperti cluster berbentuk melengkung atau non-konveks.
+            - **Bias pada Jumlah Cluster** : Nilai cenderung lebih rendah saat jumlah cluster sangat kecil atau sangat besar.
+            - **Kompleksitas Perhitungan** : Membutuhkan perhitungan jarak antara semua pasangan data, yang dapat memakan waktu pada dataset besar.
+            """)
+
+        st.markdown(""" 
+        Dalam Proses Clustering Pelanggan pada Platform Sribu menggunakan algoritma K-Means pada project kali ini,menghasilkan nilai evaluasi sebesar 0.60,dimana :
+        - Dengan nilai 0.60 menunjukkan bahwa cluster memiliki pemisahan yang cukup baik. Data dalam setiap cluster relatif lebih dekat dengan centroid cluster masing-masing dibandingkan dengan cluster lain.
+        - Persebaran anggota yang tidak terlalu timpang antara cluster menunjukkan pembagian yang cukup proporsional, sehingga dapat memberikan wawasan beragam tentang karakteristik pelanggan Sribu.
+        """)
