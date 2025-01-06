@@ -22,11 +22,11 @@ with col2:
 
 with col3:
     st.subheader("> Annisa Firdaus Nst")
-    st.write("Anggpta Kelompok 1")
+    st.write("Anggota Kelompok 1")
 
 with col4:
     st.subheader("> Ismi Nurhadiyanti")
-    st.write("Anggpta Kelompok 1")
+    st.write("Anggota Kelompok 1")
 
 st.subheader("Supported By :")
 
