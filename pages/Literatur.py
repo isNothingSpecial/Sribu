@@ -419,10 +419,11 @@ elif literatur == 'RFMC Data':
     st.header('Data Yang Telah Diolah Melalui Proses RFMC')
     st.subheader('Dataset yang telah di Scalling dan di Preprocessing untuk di RFM')
     st.markdown("""
-    Pada tahap RFM adalah tahapan dimana data masuk kedalam pengolahan untuk mengetahui nilai :
+    Pada tahap RFM+C adalah tahapan dimana data masuk kedalam pengolahan untuk mengetahui nilai :
     - Recency
     - Frequency
     - Monetary
+    - Category mana saja yang pernah di order oleh pelanggan selama menggunakan platform Sribu
     """)
     st.markdown(""" 
     Dimana proses tersebut dilakukan dengan cara :
