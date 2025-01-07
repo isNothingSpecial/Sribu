@@ -534,6 +534,7 @@ elif literatur == 'Clustering':
         - Saat distribusi data sudah sesuai dengan kebutuhan analisis dan tidak perlu diubah.
         - Ketika menggunakan algoritma seperti K-Means, KNN, atau Neural Networks yang performanya sangat dipengaruhi oleh skala fitur.
         """)
+        st.write('Berikut adalah dataset yang telah di scalling dengan menggunakan MinMaxScaller : ')
         st.write(scalling)
         
     elif literaturclus == 'Evaluasi WCSS':
