@@ -9,6 +9,7 @@ df_missing3 = pd.read_csv('data_missing_3.csv')
 df_missing4 = pd.read_csv('data_missing_4.csv')
 df_missing5 = pd.read_csv('data_missing_5.csv')
 onehot_data = pd.read_csv('data_onehot.csv')
+scalling = pd.read_csv('scalling.csv')
 dfproc = pd.read_csv('data_cleaned.csv')
 dfwill = pd.read_csv('data_will_cluster.csv')
 dfcluster = pd.read_csv('data_cluster.csv')
@@ -417,7 +418,7 @@ elif literatur == 'Pemisahan Kolom Category menjadi Kolom-Kolom Kategori biner':
 
 elif literatur == 'RFMC Data':
     st.header('Data Yang Telah Diolah Melalui Proses RFMC')
-    st.subheader('Dataset yang telah di Scalling dan di Preprocessing untuk di RFM')
+    st.subheader('Dataset yang telah di Preprocessing untuk di RFM')
     st.markdown("""
     Pada tahap RFM+C adalah tahapan dimana data masuk kedalam pengolahan untuk mengetahui nilai :
     - Recency
@@ -533,6 +534,7 @@ elif literatur == 'Clustering':
         - Saat distribusi data sudah sesuai dengan kebutuhan analisis dan tidak perlu diubah.
         - Ketika menggunakan algoritma seperti K-Means, KNN, atau Neural Networks yang performanya sangat dipengaruhi oleh skala fitur.
         """)
+        st.write(scalling)
         
     elif literaturclus == 'Evaluasi WCSS':
         st.header('Evaluasi WCSS')
