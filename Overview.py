@@ -37,7 +37,7 @@ with col_intro:
     Hasil clustering ini digunakan untuk menciptakan strategi retensi dan pemasaran yang lebih terarah (personalized).
     """)
 
-st.divider()
+st.markdown("---")
 
 # 4. Penggunaan Tabs untuk merapikan informasi agar pengguna tidak perlu banyak scroll ke bawah
 tab1, tab2 = st.tabs(["📊 Metodologi Proyek", "🏢 Latar Belakang Perusahaan"])
