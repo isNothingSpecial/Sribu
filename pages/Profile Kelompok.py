@@ -43,7 +43,7 @@ col_empty1, col_sribu, col_ds, col_empty2 = st.columns([1, 2, 2, 1])
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 with col_sribu:
-    sribu_path = os.path.join(BASE_DIR, "Sribu.png")
+    sribu_path = os.path.join(BASE_DIR, "sribu.png")
     try:
         if os.path.exists(sribu_path):
             st.image(sribu_path, use_column_width=True) # Tetap menggunakan versi lama agar aman
