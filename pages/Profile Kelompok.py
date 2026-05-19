@@ -17,8 +17,7 @@ with col1:
     st.info("👑 **Ketua Kelompok**")
     st.subheader("Bagus Rahma AC")
     st.write("Data Scientist / Data Analyst")
-    # Opsional: Anda bisa menghapus tanda '#' dan menambahkan link LinkedIn/GitHub Anda di sini
-    # st.markdown("[LinkedIn](#) | [GitHub](https://github.com/isNothingSpecial)")
+    st.markdown("[GitHub](https://github.com/isNothingSpecial)")
     
 with col2:
     # Menggunakan kotak hijau untuk Anggota
@@ -46,11 +45,11 @@ with col_sribu:
     sribu_path = os.path.join(BASE_DIR, "sribu.png")
     try:
         if os.path.exists(sribu_path):
-            st.image(sribu_path, use_column_width=True) # Tetap menggunakan versi lama agar aman
+            st.image(sribu_path, use_column_width=True) 
         else:
             st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_column_width=True)
-    except:
-        st.error("Gagal memuat logo Sribu")
+    except Exception as e:
+        st.error(f"Gagal memuat logo Sribu: {e}")
 
 with col_ds:
     ds_path = os.path.join(BASE_DIR, "ds.png")
@@ -60,5 +59,5 @@ with col_ds:
         else:
             # Fallback URL jika ds.png (Digital Skola) terhapus/hilang
             st.image("https://digitalskola.com/wp-content/uploads/2021/04/Logo-Digital-Skola-1-1.png", use_column_width=True)
-    except:
-        st.error("Gagal memuat logo ds.png")
+    except Exception as e:
+        st.error(f"Gagal memuat logo Digital Skola: {e}")
