@@ -52,7 +52,7 @@ with col_sribu:
             st.image(local_image_path_sribu, use_column_width=True)
         else:
             # Fallback URL
-            st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_column_width=True)
+            st.image("sribu.png", use_column_width=True)
     except Exception as e:
         st.error(f"Gagal memuat gambar Sribu: {e}")
 
@@ -65,6 +65,6 @@ with col_ds:
             st.image(local_image_path_ds, use_column_width=True)
         else:
             # Fallback URL
-            st.image("https://digitalskola.com/wp-content/uploads/2021/04/Logo-Digital-Skola-1-1.png", use_column_width=True)
+            st.image("ds.png", use_column_width=True)
     except Exception as e:
         st.error(f"Gagal memuat gambar ds.png: {e}")
