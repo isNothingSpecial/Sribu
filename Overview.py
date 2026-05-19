@@ -1,52 +1,83 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-import importlib
 
-## data
-
-st.set_page_config(page_title="Homepage",layout="wide")
-#side bar
-
-##layout
-
-# Menggunakan HTML dan CSS untuk membuat header dan subheader rata tengah
-st.markdown(
-    """
-    <h1 style='text-align: center;'>CLUSTERING PELANGGAN PLATFORM SRIBU DENGAN MENGGUNAKAN METODE KOMBINASI ANTARA RFM (RECENCY,FREQUENCY,MONETARY) DAN ALGORITMA K-MEANS</h1>
-    """, 
-    unsafe_allow_html=True
+# 1. Konfigurasi Halaman (Harus di baris paling atas)
+st.set_page_config(
+    page_title="Portfolio Sribu | Segmentasi Pelanggan",
+    page_icon="🎯",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
-st.image("Sribu.png", use_column_width=True)
 
-st.write(''' Sribu atau dulu bernama Sribulancer adalah platform pasar daring yang menghubungkan pemilik bisnis dengan pekerja lepas (freelancer) di berbagai bidang, termasuk desain grafis, pemrograman web, video, foto, audio, penulisan, terjemahan, pemasaran, dan iklan. Didirikan pada September 2011 oleh Ryan Gondokusumo dan Wenes Kusnadi, perusahaan ini berkantor pusat di Jakarta, Indonesia.''')
+# 2. Header dan Subheader yang Lebih Bersih
+st.markdown("<h1 style='text-align: center;'>🎯 Segmentasi Pelanggan Sribu.com</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: gray;'>Pendekatan Analisis RFM & Algoritma K-Means</h3>", unsafe_allow_html=True)
+st.write("") # Memberikan sedikit jarak
 
-col1,col2 = st.columns(2)
-with col1:
-    st.markdown(''' **Sejarah Singkat Sribu** :
-- **2011** : Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
-- **2012** : Menerima pendanaan awal dari East Ventures, yang memungkinkan ekspansi layanan.
-- **2014** : Mendapat investasi tambahan dari Asteria Japan dan memperluas kategori layanan untuk mencakup lebih dari sekadar desain grafis.
-- **2018** : Menerima pendanaan dari Crowdworks, pasar freelance terbesar di Jepang.
-- **2022** : Diakuisisi oleh Mynavi Japan dan menjadi anak perusahaan mereka.
-''')
+# 3. Hero Section (Membagi Logo dan Konteks agar logo tidak memakan seluruh layar)
+col_img, col_intro = st.columns([1, 2.5])
 
-with col2:
-    st.markdown('''**Pencapaian Sribu** :
-- Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
-- Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
-''')
+with col_img:
+    # Catatan: use_column_width sudah deprecated, gunakan use_container_width
+    try:
+        st.image("Sribu.png", use_container_width=True)
+    except:
+        st.error("Gambar Sribu.png tidak ditemukan.")
 
-st.markdown(''' Tujuan melakukan Clustering ini adalah untuk mengidentifikasi karakteristik pelanggan dimana dalam kasus ini adalah menggunakan Karakteristik-karakteristik,seperti :
-- Recency
-- Frequency
-- Monetary
-- Category
+with col_intro:
+    st.write("""
+    **Sribu (sebelumnya Sribulancer)** adalah platform pasar daring terkemuka di Indonesia yang menghubungkan 
+    pemilik bisnis dengan pekerja lepas (freelancer) profesional di berbagai bidang seperti desain grafis, 
+    pemrograman web, hingga pemasaran.
+    """)
+    
+    # Menggunakan kotak highlight untuk menonjolkan tujuan utama proyek
+    st.info("""
+    **💡 Objektif Proyek:** 
+    Mengidentifikasi dan memetakan karakteristik pelanggan berdasarkan perilaku transaksi mereka. 
+    Hasil clustering ini digunakan untuk menciptakan strategi retensi dan pemasaran yang lebih terarah (personalized).
+    """)
 
-Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data tersebut diolah untuk melakukan pemetaan cluster dari data yang diperoleh tersebut,lalu setelah dimasukkan mesin akan mengolah data tersebut guna memahami dengan karakteristik sebagai berikut termasuk kedalam cluster yang mana.
+st.divider()
 
-Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
-- Cepat dan efisien, terutama pada dataset yang besar.
-- Mudah dipahami dan diimplementasikan.''')
+# 4. Penggunaan Tabs untuk merapikan informasi agar pengguna tidak perlu banyak scroll ke bawah
+tab1, tab2 = st.tabs(["📊 Metodologi Proyek", "🏢 Latar Belakang Perusahaan"])
+
+with tab1:
+    st.subheader("Parameter Analisis")
+    st.write("Pemetaan cluster dilakukan dengan mengekstrak 4 pilar utama perilaku pelanggan:")
+    
+    # Menggunakan st.metric untuk visualisasi parameter yang menarik
+    col_r, col_f, col_m, col_c = st.columns(4)
+    col_r.metric(label="Recency", value="Waktu", delta="Kapan transaksi terakhir?")
+    col_f.metric(label="Frequency", value="Jumlah", delta="Seberapa sering order?")
+    col_m.metric(label="Monetary", value="Nilai", delta="Berapa total pengeluaran?")
+    col_c.metric(label="Category", value="Jenis", delta="Layanan apa yang dibeli?", delta_color="off")
+    
+    st.write("")
+    # Menggunakan kotak sukses untuk menyoroti alasan pemilihan algoritma
+    st.success("""
+    **⚙️ Mengapa menggunakan K-Means?**  
+    Algoritma *Unsupervised Learning* ini dipilih karena **cepat dan efisien** dalam memproses dataset pelanggan yang besar, 
+    serta menghasilkan pemisahan kelompok yang logis dan mudah diterjemahkan ke dalam keputusan bisnis.
+    """)
+
+with tab2:
+    col_hist, col_achieve = st.columns(2)
+    
+    with col_hist:
+        st.subheader("Sejarah Singkat")
+        st.markdown("""
+        - **2011**: Diluncurkan sebagai platform kontes desain.
+        - **2012**: Menerima pendanaan awal dari East Ventures.
+        - **2014**: Investasi dari Asteria Japan, ekspansi layanan di luar desain.
+        - **2018**: Pendanaan dari Crowdworks (Jepang).
+        - **2022**: Diakuisisi penuh oleh Mynavi Japan.
+        """)
+        
+    with col_achieve:
+        st.subheader("Pencapaian")
+        st.markdown("""
+        - Melayani lebih dari **30.000 klien**.
+        - Memiliki komunitas freelancer yang dikurasi ketat berdasarkan kualitas komunikasi, waktu, dan hasil.
+        - **Penghargaan:** Indonesia ICT Awards 2013 & SparxUp Award 2011.
+        """)
