@@ -20,7 +20,7 @@ col_img, col_intro = st.columns([1, 2.5])
 with col_img:
     # Logika Cerdas untuk memuat gambar (Lokal + Fallback URL)
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    local_image_path = os.path.join(BASE_DIR, "sribu.png")
+    local_image_path = os.path.join(BASE_DIR, "logo_sribu_bg_blue.jpg")
     
     try:
         # Cek apakah file sribu.png ada di folder yang sama dengan script ini
