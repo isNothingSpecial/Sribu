@@ -17,7 +17,8 @@ with col1:
     st.info("👑 **Ketua Kelompok**")
     st.subheader("Bagus Rahma AC")
     st.write("Data Scientist / Data Analyst")
-    st.markdown("[GitHub](https://github.com/isNothingSpecial)")
+    # Opsional: Anda bisa menghapus tanda '#' dan menambahkan link LinkedIn/GitHub Anda di sini
+    # st.markdown("[LinkedIn](#) | [GitHub](https://github.com/isNothingSpecial)")
     
 with col2:
     # Menggunakan kotak hijau untuk Anggota
@@ -39,25 +40,31 @@ st.write("")
 # Trik Layout: Menggunakan 4 kolom ([1, 2, 2, 1]) untuk meletakkan 2 logo tepat di tengah layar
 col_empty1, col_sribu, col_ds, col_empty2 = st.columns([1, 2, 2, 1])
 
+# Dapatkan lokasi folder absolut
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 with col_sribu:
-    sribu_path = os.path.join(BASE_DIR, "sribu.png")
+    # Logika cerdas untuk gambar Sribu
+    local_image_path_sribu = os.path.join(BASE_DIR, "logo_sribu_bg_blue.jpg")
+    
     try:
-        if os.path.exists(sribu_path):
-            st.image(sribu_path, use_column_width=True) 
+        if os.path.exists(local_image_path_sribu):
+            st.image(local_image_path_sribu, use_column_width=True)
         else:
+            # Fallback URL
             st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_column_width=True)
     except Exception as e:
-        st.error(f"Gagal memuat logo Sribu: {e}")
+        st.error(f"Gagal memuat gambar Sribu: {e}")
 
 with col_ds:
-    ds_path = os.path.join(BASE_DIR, "ds.png")
+    # Logika cerdas untuk gambar Digital Skola
+    local_image_path_ds = os.path.join(BASE_DIR, "ds.png")
+    
     try:
-        if os.path.exists(ds_path):
-            st.image(ds_path, use_column_width=True)
+        if os.path.exists(local_image_path_ds):
+            st.image(local_image_path_ds, use_column_width=True)
         else:
-            # Fallback URL jika ds.png (Digital Skola) terhapus/hilang
+            # Fallback URL
             st.image("https://digitalskola.com/wp-content/uploads/2021/04/Logo-Digital-Skola-1-1.png", use_column_width=True)
     except Exception as e:
-        st.error(f"Gagal memuat logo Digital Skola: {e}")
+        st.error(f"Gagal memuat gambar ds.png: {e}")
