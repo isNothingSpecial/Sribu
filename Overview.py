@@ -1,92 +1,70 @@
 import streamlit as st
 import os
 
-# 1. Konfigurasi Halaman (Harus di baris paling atas)
-st.set_page_config(
-    page_title="Portfolio Sribu | Segmentasi Pelanggan",
-    page_icon="🎯",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+# --- HEADER TIM ---
+st.markdown("<h1 style='text-align: center;'>👨‍💻 Tim Pengembang</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center; color: gray;'>Kelompok 1 - Bootcamp Data Science</h4>", unsafe_allow_html=True)
+st.markdown("---")
 
-# 2. Header dan Subheader yang Lebih Bersih
-st.markdown("<h1 style='text-align: center;'>🎯 Segmentasi Pelanggan Sribu.com</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: gray;'>Pendekatan Analisis RFM & Algoritma K-Means</h3>", unsafe_allow_html=True)
-st.write("") # Memberikan sedikit jarak
+st.write("Aplikasi segmentasi pelanggan ini dikembangkan sebagai *Final Project* oleh tim Kelompok 1, dengan menggabungkan keahlian dalam Analisis Data, Machine Learning, dan UI/UX Design.")
+st.write("") # Spasi tambahan
 
-# 3. Hero Section
-col_img, col_intro = st.columns([1, 2.5])
+# --- PROFIL ANGGOTA (Menggunakan desain "Card" warna-warni) ---
+col1, col2, col3 = st.columns(3)
 
-with col_img:
-    # Logika Cerdas untuk memuat gambar (Lokal + Fallback URL)
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    local_image_path = os.path.join(BASE_DIR, "logo_sribu_bg_blue.jpg")
+with col1:
+    # Menggunakan kotak info biru untuk menonjolkan Ketua Tim
+    st.info("👑 **Ketua Kelompok**")
+    st.subheader("Bagus Rahma AC")
+    st.write("Data Scientist / Data Analyst")
+    # Opsional: Anda bisa menghapus tanda '#' dan menambahkan link LinkedIn/GitHub Anda di sini
+    # st.markdown("[LinkedIn](#) | [GitHub](https://github.com/isNothingSpecial)")
     
-    try:
-        # Cek apakah file sribu.png ada di folder yang sama dengan script ini
-        if os.path.exists(local_image_path):
-            st.image(local_image_path, use_container_width=True)
-        else:
-            # Jika file lokal tidak ditemukan, otomatis tarik logo dari website resmi Sribu
-            st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_container_width=True)
-    except Exception as e:
-        st.error(f"Gagal memuat gambar: {e}")
-
-with col_intro:
-    st.write("""
-    **Sribu (sebelumnya Sribulancer)** adalah platform pasar daring terkemuka di Indonesia yang menghubungkan 
-    pemilik bisnis dengan pekerja lepas (freelancer) profesional di berbagai bidang seperti desain grafis, 
-    pemrograman web, hingga pemasaran.
-    """)
+with col2:
+    # Menggunakan kotak hijau untuk Anggota
+    st.success("👤 **Anggota**")
+    st.subheader("Tannu Wibowo")
+    st.write("Data Scientist / Data Analyst")
     
-    # Menggunakan kotak highlight untuk menonjolkan tujuan utama proyek
-    st.info("""
-    **💡 Objektif Proyek:** 
-    Mengidentifikasi dan memetakan karakteristik pelanggan berdasarkan perilaku transaksi mereka. 
-    Hasil clustering ini digunakan untuk menciptakan strategi retensi dan pemasaran yang lebih terarah (personalized).
-    """)
+with col3:
+    st.success("👤 **Anggota**")
+    st.subheader("Annisa Firdaus Nst")
+    st.write("Data Scientist / Data Analyst")
 
 st.markdown("---")
 
-# 4. Penggunaan Tabs untuk merapikan informasi
-tab1, tab2 = st.tabs(["📊 Metodologi Proyek", "🏢 Latar Belakang Perusahaan"])
+# --- BAGIAN SPONSOR / DUKUNGAN ---
+st.markdown("<h3 style='text-align: center;'>Supported By :</h3>", unsafe_allow_html=True)
+st.write("") 
 
-with tab1:
-    st.subheader("Parameter Analisis")
-    st.write("Pemetaan cluster dilakukan dengan mengekstrak 4 pilar utama perilaku pelanggan:")
-    
-    # Menggunakan st.metric untuk visualisasi parameter yang menarik
-    col_r, col_f, col_m, col_c = st.columns(4)
-    col_r.metric(label="Recency", value="Waktu", delta="Kapan transaksi terakhir?")
-    col_f.metric(label="Frequency", value="Jumlah", delta="Seberapa sering order?")
-    col_m.metric(label="Monetary", value="Nilai", delta="Berapa total pengeluaran?")
-    col_c.metric(label="Category", value="Jenis", delta="Layanan apa yang dibeli?", delta_color="off")
-    
-    st.write("")
-    
-    st.success("""
-    **⚙️ Mengapa menggunakan K-Means?**  
-    Algoritma *Unsupervised Learning* ini dipilih karena **cepat dan efisien** dalam memproses dataset pelanggan yang besar, 
-    serta menghasilkan pemisahan kelompok yang logis dan mudah diterjemahkan ke dalam keputusan bisnis.
-    """)
+# Trik Layout: Menggunakan 4 kolom ([1, 2, 2, 1]) untuk meletakkan 2 logo tepat di tengah layar
+col_empty1, col_sribu, col_ds, col_empty2 = st.columns([1, 2, 2, 1])
 
-with tab2:
-    col_hist, col_achieve = st.columns(2)
+# Dapatkan lokasi folder absolut
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with col_sribu:
+    # Logika cerdas untuk gambar Sribu
+    local_image_path_sribu = os.path.join(BASE_DIR, "logo_sribu_bg_blue.jpg")
     
-    with col_hist:
-        st.subheader("Sejarah Singkat")
-        st.markdown("""
-        - **2011**: Diluncurkan sebagai platform kontes desain.
-        - **2012**: Menerima pendanaan awal dari East Ventures.
-        - **2014**: Investasi dari Asteria Japan, ekspansi layanan di luar desain.
-        - **2018**: Pendanaan dari Crowdworks (Jepang).
-        - **2022**: Diakuisisi penuh oleh Mynavi Japan.
-        """)
-        
-    with col_achieve:
-        st.subheader("Pencapaian")
-        st.markdown("""
-        - Melayani lebih dari **30.000 klien**.
-        - Memiliki komunitas freelancer yang dikurasi ketat berdasarkan kualitas komunikasi, waktu, dan hasil.
-        - **Penghargaan:** Indonesia ICT Awards 2013 & SparxUp Award 2011.
-        """)
+    try:
+        if os.path.exists(local_image_path_sribu):
+            st.image(local_image_path_sribu, use_column_width=True)
+        else:
+            # Fallback URL
+            st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_column_width=True)
+    except Exception as e:
+        st.error(f"Gagal memuat gambar Sribu: {e}")
+
+with col_ds:
+    # Logika cerdas untuk gambar Digital Skola
+    local_image_path_ds = os.path.join(BASE_DIR, "ds.png")
+    
+    try:
+        if os.path.exists(local_image_path_ds):
+            st.image(local_image_path_ds, use_column_width=True)
+        else:
+            # Fallback URL
+            st.image("https://digitalskola.com/wp-content/uploads/2021/04/Logo-Digital-Skola-1-1.png", use_column_width=True)
+    except Exception as e:
+        st.error(f"Gagal memuat gambar ds.png: {e}")
