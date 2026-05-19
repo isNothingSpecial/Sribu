@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+
 # 1. Konfigurasi Halaman (Harus di baris paling atas)
 st.set_page_config(
     page_title="Portfolio Sribu | Segmentasi Pelanggan",
@@ -13,15 +14,23 @@ st.markdown("<h1 style='text-align: center;'>🎯 Segmentasi Pelanggan Sribu.com
 st.markdown("<h3 style='text-align: center; color: gray;'>Pendekatan Analisis RFM & Algoritma K-Means</h3>", unsafe_allow_html=True)
 st.write("") # Memberikan sedikit jarak
 
-# 3. Hero Section (Membagi Logo dan Konteks agar logo tidak memakan seluruh layar)
+# 3. Hero Section
 col_img, col_intro = st.columns([1, 2.5])
 
 with col_img:
-    # Catatan: use_column_width sudah deprecated, gunakan use_container_width
+    # Logika Cerdas untuk memuat gambar (Lokal + Fallback URL)
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    local_image_path = os.path.join(BASE_DIR, "sribu.png")
+    
     try:
-        st.image("sribu.png", use_container_width=True)
-    except:
-        st.error("Gambar Sribu.png tidak ditemukan.")
+        # Cek apakah file sribu.png ada di folder yang sama dengan script ini
+        if os.path.exists(local_image_path):
+            st.image(local_image_path, use_container_width=True)
+        else:
+            # Jika file lokal tidak ditemukan, otomatis tarik logo dari website resmi Sribu
+            st.image("https://blog.sribu.com/wp-content/uploads/2023/10/Logo-Sribu-2023.png", use_container_width=True)
+    except Exception as e:
+        st.error(f"Gagal memuat gambar: {e}")
 
 with col_intro:
     st.write("""
@@ -39,7 +48,7 @@ with col_intro:
 
 st.markdown("---")
 
-# 4. Penggunaan Tabs untuk merapikan informasi agar pengguna tidak perlu banyak scroll ke bawah
+# 4. Penggunaan Tabs untuk merapikan informasi
 tab1, tab2 = st.tabs(["📊 Metodologi Proyek", "🏢 Latar Belakang Perusahaan"])
 
 with tab1:
@@ -54,7 +63,7 @@ with tab1:
     col_c.metric(label="Category", value="Jenis", delta="Layanan apa yang dibeli?", delta_color="off")
     
     st.write("")
-    # Menggunakan kotak sukses untuk menyoroti alasan pemilihan algoritma
+    
     st.success("""
     **⚙️ Mengapa menggunakan K-Means?**  
     Algoritma *Unsupervised Learning* ini dipilih karena **cepat dan efisien** dalam memproses dataset pelanggan yang besar, 
