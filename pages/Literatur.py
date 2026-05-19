@@ -5,10 +5,17 @@ import numpy as np
 # Konfigurasi Halaman
 st.set_page_config(page_title="Analytical Process", layout="wide")
 
-# (Asumsi data sudah di-load di sini)
-# df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
-# df_missing1 = pd.read_csv('data_missing_1.csv')
-# ... (load dataset lainnya sesuai kode asli Anda)
+df = pd.read_csv('Data_Sales_Platform_SRIBU.csv')
+df_missing1 = pd.read_csv('data_missing_1.csv')
+df_missing2 = pd.read_csv('data_missing_2.csv')
+df_missing3 = pd.read_csv('data_missing_3.csv')
+df_missing4 = pd.read_csv('data_missing_4.csv')
+df_missing5 = pd.read_csv('data_missing_5.csv')
+onehot_data = pd.read_csv('data_onehot.csv')
+scalling = pd.read_csv('scalling.csv')
+dfproc = pd.read_csv('data_cleaned.csv')
+dfwill = pd.read_csv('data_will_cluster.csv')
+dfcluster = pd.read_csv('data_cluster.csv')
 
 # --- HEADER ---
 st.markdown("<h1 style='text-align: center;'>📖 Storytelling & Analytical Process</h1>", unsafe_allow_html=True)
