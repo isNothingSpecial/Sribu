@@ -19,7 +19,7 @@ col_img, col_intro = st.columns([1, 2.5])
 with col_img:
     # Catatan: use_column_width sudah deprecated, gunakan use_container_width
     try:
-        st.image("sribu.png", use_container_width=True)
+        st.image("sribu.PNG", use_container_width=True)
     except:
         st.error("Gambar Sribu.png tidak ditemukan.")
 
