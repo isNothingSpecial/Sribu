@@ -1,5 +1,5 @@
 import streamlit as st
-
+import os
 # 1. Konfigurasi Halaman (Harus di baris paling atas)
 st.set_page_config(
     page_title="Portfolio Sribu | Segmentasi Pelanggan",
@@ -19,7 +19,7 @@ col_img, col_intro = st.columns([1, 2.5])
 with col_img:
     # Catatan: use_column_width sudah deprecated, gunakan use_container_width
     try:
-        st.image("logo_sribu_bg_blue.jpg", use_container_width=True)
+        st.image("sribu.png", use_container_width=True)
     except:
         st.error("Gambar Sribu.png tidak ditemukan.")
 
